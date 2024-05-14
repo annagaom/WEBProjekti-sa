@@ -14,17 +14,17 @@ function getSelectedLanguage() {
 document.getElementById("kieli").addEventListener("change", function () {
   var selectedLanguage = this.value;
   if (selectedLanguage === 'FI') {
-    window.location.href = '../fi/1Etusivu.html';
+    window.location.href = '../../html/fi/1Etusivu.html';
   } else if (selectedLanguage === 'EN') {
-    window.location.href = '../en/1Etusivu_en.html';
+    window.location.href = '../../html/en/1Etusivu_en.html';
   } else if (selectedLanguage === 'CN') {
-    window.location.href = "../cn/1Etusivu_cn.html";
+    window.location.href = "../../html/cn/1Etusivu_cn.html";
   }
   else if (selectedLanguage === 'ET') {
-    window.location.href = "../et/1Etusivu_et.html";
+    window.location.href = "../../html/et/1Etusivu_et.html";
   }
   else if (selectedLanguage === 'SV') {
-    window.location.href = "../sv/1Etusivu_sv.html";
+    window.location.href = "../../html/sv/1Etusivu_sv.html";
   }
 });
 
@@ -63,39 +63,39 @@ document.addEventListener('DOMContentLoaded', function () {
         if (authToken) {
           switch (selectedLanguage) {
             case 'EN':
-              redirectPage = '../en/7Kayttaja_en.html';
+              redirectPage = '../../html/en/7Kayttaja_en.html';
               break;
             case 'CN':
-              redirectPage = '../cn/7Kayttaja_cn.html';
+              redirectPage = '../../html/cn/7Kayttaja_cn.html';
               break;
             case 'ET':
-              redirectPage = '../et/7Kayttaja_et.html';
+              redirectPage = '../../html/et/7Kayttaja_et.html';
               break;
             case 'SV':
-              redirectPage = '../sv/7Kayttaja_sv.html';
+              redirectPage = '../../html/sv/7Kayttaja_sv.html';
               break;
             case 'FI':
             default:
-              redirectPage = '../fi/7Kayttaja.html';
+              redirectPage = '../../html/fi/7Kayttaja.html';
               break;
           }
         } else {
           switch (selectedLanguage) {
             case 'EN':
-              redirectPage = '../en/11Login_en.html';
+              redirectPage = '../../html/en/11Login_en.html';
               break;
             case 'CN':
-              redirectPage = '../cn/11Login_cn.html';
+              redirectPage = '../../html/cn/11Login_cn.html';
               break;
             case 'ET':
-              redirectPage = '../et/11Login_et.html';
+              redirectPage = '../../html/et/11Login_et.html';
               break;
             case 'SV':
-              redirectPage = '../sv/11Login_sv.html';
+              redirectPage = '../../html/sv/11Login_sv.html';
               break;
             case 'FI':
             default:
-              redirectPage = '../fi/11Login.html';
+              redirectPage = '../../html/fi/11Login.html';
               break;
           }
         }
@@ -107,65 +107,49 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 );
 
-//TODO
-const generateVierasUser = () => {
-  const allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
-  let vierasUser = '';
+// const addVierasUser = async () => {
+//   try {
+//     localStorage.removeItem('authToken');
 
-  for (let i = 0; i < 12; i++) {
-    const randomIndex = Math.floor(Math.random() * allowedChars.length);
-    const randomChar = allowedChars[randomIndex];
-    vierasUser += randomChar;
-  }
+//     const response = await fetch('http://localhost:3000/api/v1/asiakas/vieras', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         etunimi: 'vierasUser',
+//         sukunimi: 'vieras',
+//         tunnus: 'vierasTunnus',
+//         salasana: '123',
+//         email: '',
+//         puhelin: '123',
+//         syntymapaiva: '1923-02-25',
+//         ehdot_hyvaksytty: '0',
+//         allennus_ryhma: ''
+//       }),
+//     });
 
-  return vierasUser;
-};
+//     if (!response.ok) {
+//       throw new Error('Virhe vierasasiakkaan lisäämisessä');
+//     }
 
-const addVierasUser = async () => {
-  try {
-    let userId = localStorage.getItem('authToken');
+//     const data = await response.json();
+//     console.log('Vierasasiakas lisätty onnistuneesti:', data);
 
-    if (!userId) {
-      userId = generateVierasUser();
-      localStorage.setItem('authToken', userId);
-    }
+//     if (data.token) {
+//       localStorage.setItem('authToken', data.token);
+//     }
 
-    const response = await fetch('http://localhost:3000/api/v1/asiakas/vieras', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        etunimi: 'vierasUser',
-        sukunimi: 'vieras',
-        tunnus: 'vierasTunnus',
-        salasana: '123',
-        email: '',
-        puhelin: '123',
-        syntymapaiva: '1923-02-25',
-        ehdot_hyvaksytty: '0',
-        allennus_ryhma: '',
-        userId: userId
-      }),
-    });
+//     return data;
+//   } catch (error) {
+//     console.error('Error adding guest user:', error);
+//     return null;
+//   }
+// };
 
-    if (!response.ok) {
-      throw new Error('Virhe');
-    }
+// addVierasUser();
 
-    const data = await response.json();
 
-    if (data.token) {
-      localStorage.setItem('authToken', data.token);
-    }
-
-    return data;
-  } catch (error) {
-    return null;
-  }
-};
-
-addVierasUser();
 
 /**
  * Retrieves the user ID from a JWT token stored in localStorage.
@@ -346,20 +330,20 @@ const vahvistaJaTyhjenna = async () => {
   let targetPage = '';
   switch (kieli) {
     case 'EN':
-      targetPage = '../en/9Vahvistus_en.html';
+      targetPage = '../../html/en/9Vahvistus_en.html';
       break;
     case 'CN':
-      targetPage = '../cn/9Vahvistus_cn.html';
+      targetPage = '../../html/cn/9Vahvistus_cn.html';
       break;
     case 'ET':
-      targetPage = '../et/9Vahvistus_et.html';
+      targetPage = '../../html/et/9Vahvistus_et.html';
       break;
     case 'SV':
-      targetPage = '../sv/9Vahvistus_sv.html';
+      targetPage = '../../html/sv/9Vahvistus_sv.html';
       break;
     case 'FI':
     default:
-      targetPage = '../fi/9Vahvistus.html';
+      targetPage = '../../html/fi/9Vahvistus.html';
       break;
   }
   // Redirect to the confirmation page
