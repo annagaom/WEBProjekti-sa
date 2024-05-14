@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
             };
 
             try {
-                const response = await fetch("http:/localhost:3000/api/v1/asiakas", {
+                const response = await fetch("http://localhost:3000/api/v1/asiakas", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -359,7 +359,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const endDate = endDateElement.value;
 
             try {
-                const response = await fetch(`http:/localhost:3000/api/v1/palaute/${startDate}/${endDate}`, {
+                const response = await fetch(`http://localhost:3000/api/v1/palaute/${startDate}/${endDate}`, {
                     method: "GET",
                 });
 
@@ -428,59 +428,59 @@ const getTyyppiIdLista = async () => {
 
         let url;
         if (selectedAlatyyppi === 'kakut') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/kakut';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakut';
         } else if (selectedAlatyyppi === 'suolaista') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/suolaista';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/suolaista';
         } else if (selectedAlatyyppi === 'makeaa') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/makeaa';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/makeaa';
         } else if (selectedAlatyyppi === 'lammintaruokaa') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaa';
         } else if (selectedAlatyyppi === 'juotavaa') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/juotavaa';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaa';
 
         } else if (selectedAlatyyppi === 'cakes') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/cakes';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/cakes';
         } else if (selectedAlatyyppi === 'savory') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/savory';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/savory';
         } else if (selectedAlatyyppi === 'sweet') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/sweet';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/sweet';
         } else if (selectedAlatyyppi === 'hotmeals') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/hotmeals';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/hotmeals';
         } else if (selectedAlatyyppi === 'drinks') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/drinks';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/drinks';
 
         } else if (selectedAlatyyppi === 'tårtor') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/tårtor';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/tårtor';
         } else if (selectedAlatyyppi === 'saltet') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/saltet';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/saltet';
         } else if (selectedAlatyyppi === 'sött') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/sött';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/sött';
         } else if (selectedAlatyyppi === 'varmarätter') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/varmarätter';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/varmarätter';
         } else if (selectedAlatyyppi === 'drycker') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/drycker';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/drycker';
 
         } else if (selectedAlatyyppi === 'koogid') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/koogid';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/koogid';
         } else if (selectedAlatyyppi === 'soolane') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/soolane';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/soolane';
         } else if (selectedAlatyyppi === 'magus') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/magus';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/magus';
         } else if (selectedAlatyyppi === 'kuumtoit') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/kuumtoit';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kuumtoit';
         } else if (selectedAlatyyppi === 'joogid') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/joogid';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/joogid';
 
         } else if (selectedAlatyyppi === 'kakutcn') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/kakutcn';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/kakutcn';
         } else if (selectedAlatyyppi === 'suolaistacn') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/suolaistacn';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/suolaistacn';
         } else if (selectedAlatyyppi === 'makeaacn') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/makeaacn';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/makeaacn';
         } else if (selectedAlatyyppi === 'lammintaruokaacn') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaacn';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/lammintaruokaacn';
         } else if (selectedAlatyyppi === 'juotavaacn') {
-            url = 'http:/localhost:3000/api/v1/tyyppi/paatyyppi/juotavaacn';
+            url = 'http://localhost:3000/api/v1/tyyppi/paatyyppi/juotavaacn';
         }
 
         const response = await fetch(url, {
@@ -524,7 +524,7 @@ const fetchAndDisplayTuotteet = async () => {
  */
 const fetchAndDisplayByTyyppiId = async (tyyppiId) => {
     try {
-        const response = await fetch(`http:/localhost:3000/api/v1/tuote/tyyppi_id/${tyyppiId}`, {
+        const response = await fetch(`http://localhost:3000/api/v1/tuote/tyyppi_id/${tyyppiId}`, {
             method: 'GET',
         });
 
@@ -666,7 +666,7 @@ const displaySingleTuote = async (tuote) => {
  */
 const getKategoriaIdByTuoteId = async (tuoteId) => {
     try {
-        const response = await fetch(`http:/localhost:3000/api/v1/kategoria_tuote/tuote/${tuoteId}`);
+        const response = await fetch(`http://localhost:3000/api/v1/kategoria_tuote/tuote/${tuoteId}`);
 
         if (response.status === 404) {
             return [];
@@ -689,7 +689,7 @@ const getKategoriaIdByTuoteId = async (tuoteId) => {
 
 const getKategoriaById = async (kategoriaId) => {
     try {
-        const response = await fetch(`http:/localhost:3000/api/v1/kategoria/${kategoriaId}`);
+        const response = await fetch(`http://localhost:3000/api/v1/kategoria/${kategoriaId}`);
         if (!response.ok) {
             return '';
         }
@@ -704,7 +704,7 @@ const getKategoriaById = async (kategoriaId) => {
 const getKategoriatuoteIdByTuoteAndKategoria = async (tuoteId, kategoriaId) => {
     try {
         const response = await fetch(
-            `http:/localhost:3000/api/v1/kategoria_tuote/${tuoteId}/${kategoriaId}`,
+            `http://localhost:3000/api/v1/kategoria_tuote/${tuoteId}/${kategoriaId}`,
             { method: 'GET' }
         );
 
@@ -718,7 +718,7 @@ const getKategoriatuoteIdByTuoteAndKategoria = async (tuoteId, kategoriaId) => {
 
 const addKategoriaToTuote = async (tuoteId, kategoriaId) => {
     try {
-        const response = await fetch('http:/localhost:3000/api/v1/kategoria_tuote', {
+        const response = await fetch('http://localhost:3000/api/v1/kategoria_tuote', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -742,7 +742,7 @@ const addKategoriaToTuote = async (tuoteId, kategoriaId) => {
 const deleteKategoriaFromTuote = async (kategoriatuote_id) => {
 
     try {
-        const response = await fetch(`http:/localhost:3000/api/v1/kategoria_tuote/${kategoriatuote_id}`, {
+        const response = await fetch(`http://localhost:3000/api/v1/kategoria_tuote/${kategoriatuote_id}`, {
             method: 'DELETE',
         });
 
@@ -904,7 +904,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             try {
-                const response = await fetch('http:/localhost:3000/api/v1/tuote', {
+                const response = await fetch('http://localhost:3000/api/v1/tuote', {
                     method: 'POST',
                     body: formData,
                 });
@@ -942,7 +942,7 @@ const openUpdateModal = (tuote, buttonElement) => {
         const tuoteId = tuote.tuote_id;
 
         try {
-            const response = await fetch(`http:/localhost:3000/api/v1/tuote/${tuoteId}`, {
+            const response = await fetch(`http://localhost:3000/api/v1/tuote/${tuoteId}`, {
                 method: "PUT",
                 body: formData,
             });

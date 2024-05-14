@@ -163,7 +163,7 @@ const fetchAndDisplayTuotteet = async () => {
  */
 const findTuoteIdByUserId = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/suosikit/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}`, {
       method: 'GET',
     });
 
@@ -187,7 +187,7 @@ const findTuoteIdByUserId = async (userId) => {
  */
 const getTuoteByTuoteId = async (tuote_id, userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tuote/${tuote_id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tuote/${tuote_id}`, {
       method: 'GET',
     });
 
@@ -267,7 +267,7 @@ const getTuoteByTuoteId = async (tuote_id, userId) => {
  */
 const isFavorite = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/suosikit/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}`, {
       method: 'GET',
     });
 
@@ -309,7 +309,7 @@ const toggleFavorite = async (userId, tuote_id, buttonElement) => {
  */
 const addFavorite = async (asiakas_id, tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/suosikit`, {
+    const response = await fetch(`http://localhost:3000/api/v1/suosikit`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -335,7 +335,7 @@ const addFavorite = async (asiakas_id, tuote_id) => {
  */
 const removeSuosikista = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/suosikit/${userId}/${tuote_id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}/${tuote_id}`, {
       method: 'DELETE',
     });
 
@@ -354,7 +354,7 @@ const removeSuosikista = async (userId, tuote_id) => {
  */
 const ostoskoriTarkistus = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
@@ -378,7 +378,7 @@ const ostoskoriTarkistus = async (userId, tuote_id) => {
  */
 const addToCart = async (userId, tuote_id, tuote_maara) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -405,7 +405,7 @@ const addToCart = async (userId, tuote_id, tuote_maara) => {
  */
 const updateCart = async (userId, tuote_id, tuote_maara) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

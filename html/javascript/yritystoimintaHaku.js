@@ -54,7 +54,7 @@ window.addEventListener('DOMContentLoaded', () => {
          */
 
       try {
-        const response = await fetch(`http:/localhost:3000/api/v1/yritystoiminta/${startDate}/${endDate}`, {
+        const response = await fetch(`http://localhost:3000/api/v1/yritystoiminta/${startDate}/${endDate}`, {
           method: 'GET',
         });
 

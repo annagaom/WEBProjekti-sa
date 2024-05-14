@@ -1,22 +1,22 @@
 ###
-GET http:/localhost:3000/api/v1/kategoria_tuote
+GET http://localhost:3000/api/v1/kategoria_tuote
 
 
 ###get Kategoria_tuote by id
-GET http:/localhost:3000/api/v1/kategoria_tuote/465
+GET http://localhost:3000/api/v1/kategoria_tuote/465
 
 ###get Kategoria_tuote by tuote_id
-GET http:/localhost:3000/api/v1/kategoria_tuote/tuote/17
+GET http://localhost:3000/api/v1/kategoria_tuote/tuote/17
 
 ### get kategoria by tuote ja kategoriatuote_id
-GET http:/localhost:3000/api/v1/kategoria_tuote/336/3
+GET http://localhost:3000/api/v1/kategoria_tuote/336/3
 
 ###get Kategoria_tuote by kategoria_id
-GET http:/localhost:3000/api/v1/kategoria_tuote/kategoria/4
+GET http://localhost:3000/api/v1/kategoria_tuote/kategoria/4
 
 
 ### uusi Kategoria_tuote
-POST http:/localhost:3000/api/v1/kategoria_tuote
+POST http://localhost:3000/api/v1/kategoria_tuote
 Content-Type: application/json
 
 {
@@ -28,11 +28,11 @@ Content-Type: application/json
 
 
 ###Delete Kategoria_tuote by id
-DELETE http:/localhost:3000/api/v1/kategoria_tuote/461
+DELETE http://localhost:3000/api/v1/kategoria_tuote/461
 
 
 ###Update Kategoria_tuote by id
-PUT http:/localhost:3000/api/v1/kategoria_tuote/4
+PUT http://localhost:3000/api/v1/kategoria_tuote/4
 Content-Type: application/json
 
 {

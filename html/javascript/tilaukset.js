@@ -52,7 +52,7 @@ const fetchAndDisplayTuotteet = async () => {
    */
 const findTilausIdByUserId = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus/asiakas/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus/asiakas/${userId}`, {
       method: 'GET',
     });
 
@@ -76,7 +76,7 @@ const findTilausIdByUserId = async (userId) => {
   */
 const getAllTilausIdFromTilaus = async () => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus_sisalto/`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus_sisalto/`, {
       method: 'GET',
     });
 
@@ -99,7 +99,7 @@ const getAllTilausIdFromTilaus = async () => {
   */
 const getTuoteListFromTsByTilausId = async (tilaus_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus_sisalto//tilaus/${tilaus_id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus_sisalto//tilaus/${tilaus_id}`, {
       method: 'GET',
     });
 
@@ -169,7 +169,7 @@ const displayTuotteet = async (tuotteet) => {
 
 const tilausTarkistus = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus/${userId}`, {
       method: 'GET',
     });
 
@@ -186,7 +186,7 @@ const tilausTarkistus = async (userId) => {
 
 const findTuoteIdByUserId = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus/${userId}`, {
       method: 'GET',
     });
 
@@ -200,7 +200,7 @@ const findTuoteIdByUserId = async (userId) => {
 
 const getTuoteNimiJaHintaByTuoteId = async (tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tuote/${tuote_id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tuote/${tuote_id}`, {
       method: 'GET',
     });
 

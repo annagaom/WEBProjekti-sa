@@ -130,7 +130,7 @@ const addVierasUser = async () => {
       localStorage.setItem('authToken', userId);
     }
 
-    const response = await fetch('http:/localhost:3000/api/v1/asiakas/vieras', {
+    const response = await fetch('http://localhost:3000/api/v1/asiakas/vieras', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -191,7 +191,7 @@ const userId = getUserId();
  */
 const getLastUserId = async () => {
   try {
-    const response = await fetch('http:/localhost:3000/api/v1/asiakas', {
+    const response = await fetch('http://localhost:3000/api/v1/asiakas', {
       method: 'GET',
     });
 
@@ -241,7 +241,7 @@ const paivitaSuosikkiMaara = async () => {
  */
 const getSuosikinMaaraByUserId = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/suosikit/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/suosikit/${userId}`, {
       method: 'GET',
     });
 
@@ -276,7 +276,7 @@ const getSuosikinMaaraByUserId = async (userId) => {
 const getTuotteenMaaraByUserId = async (userId) => {
 
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
@@ -304,7 +304,7 @@ const getTuotteenMaaraByUserId = async (userId) => {
  */
 const removeOstoskoristaById = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${UserId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${UserId}`, {
       method: 'DELETE',
     });
 
@@ -322,7 +322,7 @@ const removeOstoskoristaById = async (userId) => {
  */
 const tyhjennaOstoskori = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'DELETE',
     });
 

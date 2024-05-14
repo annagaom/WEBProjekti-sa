@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Lähettää rekisteröintitiedot palvelimelle
-            fetch('http:/localhost:3000/api/v1/asiakas', {
+            fetch('http://localhost:3000/api/v1/asiakas', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

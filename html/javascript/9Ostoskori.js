@@ -142,7 +142,7 @@ const fetchAndDisplayTuotteet = async () => {
  */
 const findTuoteIdByUserId = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
@@ -171,7 +171,7 @@ const tilauksenTuoteList = [];
  */
 const getTuoteByTuoteId = async (tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tuote/${tuote_id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tuote/${tuote_id}`, {
       method: 'GET',
     });
 
@@ -307,7 +307,7 @@ const getTuoteByTuoteId = async (tuote_id) => {
 
 const ostoskoriTarkistus = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
@@ -341,7 +341,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
   const onTuoteKorissa = await ostoskoriTarkistus(userId, tuote_id);
   if (onTuoteKorissa) {
     try {
-      const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+      const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -367,7 +367,7 @@ const deleteTuoteFromCart = async (userId, tuote_id) => {
  */
 const updateCart = async (userId, tuote_id, uusiMaara) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -399,7 +399,7 @@ const updateCart = async (userId, tuote_id, uusiMaara) => {
  */
 const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}/${tuote_id}`, {
       method: 'GET',
     });
 
@@ -417,7 +417,7 @@ const getTuoteMaaraFromOstoskori = async (userId, tuote_id) => {
 //TODO
 const getKokoTuoteMaara = async (userId) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/ostoskori/${userId}`, {
+    const response = await fetch(`http://localhost:3000/api/v1/ostoskori/${userId}`, {
       method: 'GET',
     });
 
@@ -458,7 +458,7 @@ const deleteTuoteFromTilauksenTuotelist = (tuote_id) => {
  */
 const tarkistaTilausId = async (tilaus_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus/${tilaus_id}`);
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus/${tilaus_id}`);
     if (!response.ok) {
       return false;
     }
@@ -495,7 +495,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
       return;
     }
 
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus_sisalto`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus_sisalto`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -539,7 +539,7 @@ const lisaaTilausSisalto = async (tilaus_id, tuote_id, tuote_hinta, tuote_kustan
  */
 const lisaaTilaus = async (userId, tuote_id) => {
   try {
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -568,7 +568,7 @@ const lisaaTilaus = async (userId, tuote_id) => {
  */
 const getLastTilausId = async (userId) => {
   const fetchLastTilausId = async () => {
-    const response = await fetch(`http:/localhost:3000/api/v1/tilaus`, {
+    const response = await fetch(`http://localhost:3000/api/v1/tilaus`, {
       method: 'GET',
     });
 
@@ -586,7 +586,7 @@ const getLastTilausId = async (userId) => {
   };
 
   const createNewTilaus = async (asiakas_id) => {
-    const response = await fetch('http:/localhost:3000/api/v1/tilaus', {
+    const response = await fetch('http://localhost:3000/api/v1/tilaus', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -636,7 +636,7 @@ const getLastTilausId = async (userId) => {
 const lisaaYritystoiminta = async (tilais_pvm, tilaus_id, myynti_hinta, kustannus, voitto) => {
 
   try {
-    const response = await fetch('http:/localhost:3000/api/v1/yritystoiminta', {
+    const response = await fetch('http://localhost:3000/api/v1/yritystoiminta', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         userId = parsedPayload.asiakas_id;
 
-        const response = await fetch(`http:/localhost:3000/api/v1/asiakas/info/${userId}`, {
+        const response = await fetch(`http://localhost:3000/api/v1/asiakas/info/${userId}`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${token}`,

@@ -1,17 +1,17 @@
 ###
-GET http:/localhost:3000/api/v1/kategoria
+GET http://localhost:3000/api/v1/kategoria
 
 
 ###get kategoria by id
-GET http:/localhost:3000/api/v1/kategoria/1
+GET http://localhost:3000/api/v1/kategoria/1
 
 
 ### get kategoria by name
-GET http:/localhost:3000/api/v1/kategoria/name/laktoositon
+GET http://localhost:3000/api/v1/kategoria/name/laktoositon
 
 
 ### uusi kategoria
-POST http:/localhost:3000/api/v1/kategoria
+POST http://localhost:3000/api/v1/kategoria
 Content-Type: application/json
 
 {
@@ -19,11 +19,11 @@ Content-Type: application/json
 }
 
 ###Delete kategoria by id
-DELETE http:/localhost:3000/api/v1/kategoria/2
+DELETE http://localhost:3000/api/v1/kategoria/2
 
 
 ###Update kategoria by id
-PUT http:/localhost:3000/api/v1/kategoria/3
+PUT http://localhost:3000/api/v1/kategoria/3
 Content-Type: application/json
 
 {

@@ -1,10 +1,10 @@
 
 ###
-GET http:/localhost:3000/api/v1/asiakas
+GET http://localhost:3000/api/v1/asiakas
 
 
 ### uusi rekisteröityminen
-POST http:/localhost:3000/api/v1/asiakas
+POST http://localhost:3000/api/v1/asiakas
 Content-Type: application/json
 
 {
@@ -20,7 +20,7 @@ Content-Type: application/json
     "allennus_ryhma": ""
 }
 ###
-POST http:/localhost:3000/api/v1/asiakas/vieras
+POST http://localhost:3000/api/v1/asiakas/vieras
 Content-Type: application/json
 
 {
@@ -37,7 +37,7 @@ Content-Type: application/json
 }
 
 ### uusi kirjautuminen
-POST http:/localhost:3000/api/v1/asiakas/login
+POST http://localhost:3000/api/v1/asiakas/login
 Content-Type: application/json
 
 {
@@ -45,13 +45,13 @@ Content-Type: application/json
 }
 
 ###get user by username
-GET http:/localhost:3000/api/v1/asiakas/name/lalan
+GET http://localhost:3000/api/v1/asiakas/name/lalan
 
 ###get user by id
-GET http:/localhost:3000/api/v1/asiakas/23
+GET http://localhost:3000/api/v1/asiakas/23
 
 ###update user
-PUT http:/localhost:3000/api/v1/asiakas/6
+PUT http://localhost:3000/api/v1/asiakas/6
 Content-Type: application/json
 
 {
@@ -68,7 +68,7 @@ Content-Type: application/json
 }
 
 ### update user info
-PUT http:/localhost:3000/api/v1/asiakas/info/71
+PUT http://localhost:3000/api/v1/asiakas/info/71
 Content-Type: application/json
 
 {
@@ -80,7 +80,7 @@ Content-Type: application/json
 }
 
 ### update user password
-PUT http:/localhost:3000/api/v1/asiakas/password/71
+PUT http://localhost:3000/api/v1/asiakas/password/71
 Content-Type: application/json
 
 {
@@ -88,7 +88,7 @@ Content-Type: application/json
 }
 
 ###
-GET http:/localhost:3000/api/v1/asiakas/info/71
+GET http://localhost:3000/api/v1/asiakas/info/71
 
 ### check alennusryhmä
-GET http:/localhost:3000/api/v1/asiakas/alennus/71
+GET http://localhost:3000/api/v1/asiakas/alennus/71

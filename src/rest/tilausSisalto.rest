@@ -1,29 +1,29 @@
 ###
-GET http:/localhost:3000/api/v1/tilaus_sisalto
+GET http://localhost:3000/api/v1/tilaus_sisalto
 
 
 ###get tilaus_sisalto by id
-GET http:/localhost:3000/api/v1/tilaus_sisalto/3
+GET http://localhost:3000/api/v1/tilaus_sisalto/3
 
 
 ###get tilaus_sisalto by tilaus_id
-GET http:/localhost:3000/api/v1/tilaus_sisalto/tilaus/132
+GET http://localhost:3000/api/v1/tilaus_sisalto/tilaus/132
 
 
 ###get tilaus_sisalto tilaus_pvm by tuote_id
-GET http:/localhost:3000/api/v1/tilaus_sisalto/pvm/tilaus_pvm/23
+GET http://localhost:3000/api/v1/tilaus_sisalto/pvm/tilaus_pvm/23
 
 
 ###get tilaus_sisalto by tilaus_pvm
-GET http:/localhost:3000/api/v1/tilaus_sisalto/pvm/2024-04-26
+GET http://localhost:3000/api/v1/tilaus_sisalto/pvm/2024-04-26
 
 ###get all tilaus_sisalto between dates
 
-GET http:/localhost:3000/api/v1/tilaus_sisalto/2024-04-19/2024-04-29
+GET http://localhost:3000/api/v1/tilaus_sisalto/2024-04-19/2024-04-29
 
 
 ### uusi tilaus_sisalto
-POST http:/localhost:3000/api/v1/tilaus_sisalto
+POST http://localhost:3000/api/v1/tilaus_sisalto
 Content-Type: application/json
 
 {
@@ -40,11 +40,11 @@ Content-Type: application/json
 
 
 ###Delete tilaus_sisalto by id
-DELETE http:/localhost:3000/api/v1/tilaus_sisalto/1
+DELETE http://localhost:3000/api/v1/tilaus_sisalto/1
 
 
 ###Update tilaus_sisalto by id
-PUT http:/localhost:3000/api/v1/tilaus_sisalto/2
+PUT http://localhost:3000/api/v1/tilaus_sisalto/2
 Content-Type: application/json
 
 {

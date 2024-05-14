@@ -1,17 +1,17 @@
 ###
-GET http:/localhost:3000/api/v1/tyyppi
+GET http://localhost:3000/api/v1/tyyppi
 
 
 ###get tyyppi id  by typyit
-GET http:/localhost:3000/api/v1/tyyppi/lammintaruokaa/muut%20lämpimät%20ruuat
+GET http://localhost:3000/api/v1/tyyppi/lammintaruokaa/muut%20lämpimät%20ruuat
 
 
 ### get paatyyppi by alatyyppi
-GET http:/localhost:3000/api/v1/tyyppi/paatyyppi/kakut
+GET http://localhost:3000/api/v1/tyyppi/paatyyppi/kakut
 
 
 ### uusi tyyppi
-POST http:/localhost:3000/api/v1/tyyppi
+POST http://localhost:3000/api/v1/tyyppi
 Content-Type: application/json
 
 {
@@ -20,5 +20,5 @@ Content-Type: application/json
 }
 
 ###Delete tyyppi by id
-DELETE http:/localhost:3000/api/v1/tyyppi/18
+DELETE http://localhost:3000/api/v1/tyyppi/18
 

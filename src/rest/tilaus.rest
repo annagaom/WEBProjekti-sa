@@ -1,18 +1,18 @@
 ###
-GET http:/localhost:3000/api/v1/tilaus
+GET http://localhost:3000/api/v1/tilaus
 
 
 
 ###get tilaus by tulaus_id
-GET http:/localhost:3000/api/v1/tilaus/1
+GET http://localhost:3000/api/v1/tilaus/1
 
 
 ###get tilaus by asiakas_id
-GET http:/localhost:3000/api/v1/tilaus/asiakas/69
+GET http://localhost:3000/api/v1/tilaus/asiakas/69
 
 
 ### uusi tilaus
-POST http:/localhost:3000/api/v1/tilaus
+POST http://localhost:3000/api/v1/tilaus
 Content-Type: application/json
 
 {
@@ -21,11 +21,11 @@ Content-Type: application/json
 
 
 ###Delete tilaus by tilaus_id
-DELETE http:/localhost:3000/api/v1/tilaus/1
+DELETE http://localhost:3000/api/v1/tilaus/1
 
 
 ###Update tilaus by tilaus_id
-PUT http:/localhost:3000/api/v1/tilaus/2
+PUT http://localhost:3000/api/v1/tilaus/2
 Content-Type: application/json
 
 {
