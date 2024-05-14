@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/10Paakayttaja.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+  <style>
+    /* footer */
+
+    .changecontent::after {
+      content: "Tervetuloa kakkukahveille!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "加入会员， 第一次消费可享受15%的折扣!";
+      }
+
+      40% {
+        content: "无需手续费";
+      }
+
+      60% {
+        content: "创建你的梦想蛋糕！";
+      }
+
+      80% {
+        content: "运费 2,95€";
+      }
+
+      100% {
+        content: "欢迎前来品尝！";
+      }
+    }
+  </style>
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/paakayttaja.js" defer></script>
+  <script src="../javascript/yritystoimintaHaku.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">请选择语言: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN" selected>中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_cn.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_cn.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_cn.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <nav id="navbar">
+      <a href="1Etusivu_cn.html" class="navItem">首页</a>
+      <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" id="menuButton" href="3MenuPage_cn.html">
+          菜单
+        </a>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1_cn.html">蛋糕</a>
+          <a class="dropdown-item" href="3MenuPage2_cn.html">咸味食品</a>
+          <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+        </div>
+      </div>
+      <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
+      <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
+    </nav>
+
+    <div id="backgroundOverlay" class="background-overlay"></div>
+
+    <!-- Mukautettu modal -->
+    <div id="customModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="close">&times;</span>
+        <p>拒绝访问：此页面仅供管理员使用。</p>
+      </div>
+    </div>
+
+    <div class="ajan-section">
+      <h1>产品管理</h1><br>
+      <button class="button" id="newProductButton">添加新产品</button>
+    </div>
+
+    <dialog id="tuoteModal">
+      <div>
+        <h2>添加新产品</h2>
+        <form id="tuoteForm" enctype="multipart/form-data">
+          <label for="tuote_nimi">产品名称：</label>
+          <input type="text" id="tuote_nimi" name="tuote_nimi" required><br>
+
+          <label for="tuote_kuvaus">产品描述：</label><br>
+          <textarea id="tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">图片：</label>
+          <input type="file" id="tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">价格 (€)：</label>
+          <input type="number" step="0.01" id="tuote_hinta" name="tuote_hinta" required><br>
+
+          <label for="tuote_kustannus">成本 (€)：</label>
+          <input type="number" step="0.01" id="tuote_kustannus" name="tuote_kustannus"><br>
+
+          <label for="tuote_tyyppi">产品类型：</label>
+          <select id="tuote_tyyppi" name="tyyppi_id" required>
+            <option value="">请选择类型</option>
+            <option value="59">节庆蛋糕</option>
+            <option value="60">甜味蛋糕</option>
+            <option value="61">咸味蛋糕</option>
+            <option value="62">馅饼</option>
+            <option value="63">沙拉</option>
+            <option value="64">派</option>
+            <option value="65">烘焙食品</option>
+            <option value="66">其他甜点</option>
+            <option value="67">鸡肉菜肴</option>
+            <option value="68">其他热菜</option>
+            <option value="69">热饮</option>
+            <option value="70">冰咖啡</option>
+            <option value="71">茶</option>
+            <option value="72">软饮料</option>
+          </select>
+          <br>
+
+          <button id="saveButton" type="button">添加产品</button>
+          <button id="closeButton" type="button">关闭</button>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog id="updateTuoteModal">
+      <div>
+        <h2>编辑产品</h2>
+        <form id="updateTuoteForm" enctype="multipart/form-data">
+          <input type="hidden" id="tuote_id" name="tuote_id">
+          <label for="tuote_nimi">产品名称：</label>
+          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+          <label for="tuote_kuvaus">产品描述：</label><br>
+          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">新图片（可选）：</label>
+          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">价格 (€)：</label>
+          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">成本 (€)：</label>
+          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+          <button id="updateButton" type="button">更新产品</button>
+          <button id="closeUpdateButton" type="button">关闭</button>
+        </form>
+      </div>
+
+    </dialog>
+
+
+    <dialog id="kategoriatModal">
+      <h2>添加特殊饮食</h2>
+      <div id="tuote_kategoriat">
+        <p>类别：</p>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="22">
+        <label for="gluteeniton">无麸质</label><br>
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="23">
+        <label for="laktoositon">无乳糖</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="24">
+        <label for="maidoton">不含乳制品</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="25">
+        <label for="munaton">不含蛋</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="26">
+        <label for="kasvis">素食</label><br>
+      </div>
+      <button id="addKategoriat" type="button">添加</button>
+
+      <div id="tuote_kategoriat2">
+        <h2>删除特殊饮食</h2>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="22">
+        <label for="gluteeniton">无麸质</label><br>
+
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="23">
+        <label for="laktoositon">无乳糖</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="24">
+        <label for="maidoton">不含乳制品</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="25">
+        <label for="munaton">不含蛋</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="26">
+        <label for="kasvis">素食</label><br>
+
+      </div>
+      <button id="deleteKategoriat" type="button">删除</button><br>
+
+      <button id="closeKategoriat" type="button">关闭</button>
+    </dialog>
+
+
+    <div>
+
+      <p>搜索并选定产品， 然后可进行编辑或删除。</p>
+      <input type="text" id="cakeSearch" placeholder="搜索产品...">
+      <div class="filter-options">
+        <label for="cakeType">选择类型:</label>
+        <select id="cakeType">
+          <option value="valitse">选择</option>
+          <option value="kakutcn">蛋糕</option>
+          <option value="suolaistacn">咸味食品</option>
+          <option value="makeaacn">甜点</option>
+          <option value="lammintaruokaacn">热食</option>
+          <option value="juotavaacn">饮料</option>
+        </select>
+      </div>
+      <div id="cakeList" class="cake-list"></div>
+      <hr>
+
+      <div>
+        <h1>公司商业运营监督</h1>
+        <h4>可查看您所选择期间的运营报告。</h4>
+        <p>请选择时间段: </p>
+
+        <label for="aloituspvm1">开始日期：</label>
+        <input type="date" id="aloituspvm1" name="aloituspvm1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+        <label for="lopetuspvm1">截止日期:</label>
+        <input type="date" id="lopetuspvm1" name="lopetuspvm1">
+        <table>
+          <button id="haeRaport" class="button">搜索</button>
+
+          <tbody id="raportList">
+            <br>
+            <br>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+
+      <div>
+        <h1>反馈</h1>
+        <label for="aloituspvm">开始日期：</label>
+        <input type="date" id="aloituspvm" name="startDate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+
+        <label for="lopetuspvm">截止日期:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
+
+        <table>
+          <tbody id="palaute"></tbody>
+        </table>
+      </div>
+      <button id="haePalaute" class="button">搜索</button>
+
+    </div>
+
+    <h1>添加用户</h1>
+    <p>在这里你可以添加一个新用户</p>
+    <button id="openModal" class="" userButton>添加新用户</button>
+
+    <dialog id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>添加新用户</h2>
+        <form id="userForm">
+          <label for="etunimi">名字：</label>
+          <input type="text" id="etunimi" name="etunimi" required>
+
+          <label for="sukunimi">姓氏：</label>
+          <input type="text" id="sukunimi" name="sukunimi" required>
+
+          <label for="tunnus">用户名：</label>
+          <input type="text" id="tunnus" name="tunnus" required>
+
+          <label for="salasana">密码：</label>
+          <input type="password" id="salasana" name="salasana" required>
+
+          <label for="email">电子邮件：</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="puhelin">电话：</label>
+          <input type="tel" id="puhelin" name="puhelin" required>
+
+          <label for="syntymapaiva">出生日期：</label>
+          <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+          <label for="rooli">角色：</label>
+          <select id="rooli" name="rooli">
+            <option value="user">用户</option>
+            <option value="admin">管理员</option>
+          </select>
+          <br>
+          <label for="alennus">折扣类别：</label>
+          <select id="alennus" name="alennus">
+            <option value="none">请选择</option>
+            <option value="opiskelija">学生</option>
+            <option value="elakelainen">退休人员</option>
+          </select>
+
+          <br>
+          <br>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
+            <label for="hyvaksyminen">条款接受 *</label>
+          </div>
+          <button class="userButton" type="submit">添加用户</button>
+        </form>
+
+      </div>
+    </dialog>
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
+
+
+</body>
+
+</html>

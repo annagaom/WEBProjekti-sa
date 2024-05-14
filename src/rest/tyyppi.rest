@@ -1,0 +1,24 @@
+###
+GET http:/localhost:3000/api/v1/tyyppi
+
+
+###get tyyppi id  by typyit
+GET http:/localhost:3000/api/v1/tyyppi/lammintaruokaa/muut%20lämpimät%20ruuat
+
+
+### get paatyyppi by alatyyppi
+GET http:/localhost:3000/api/v1/tyyppi/paatyyppi/kakut
+
+
+### uusi tyyppi
+POST http:/localhost:3000/api/v1/tyyppi
+Content-Type: application/json
+
+{
+    "paatyyppi": "juotavaacn",
+    "alatyyppi": "virvoitusjuomatcn"
+}
+
+###Delete tyyppi by id
+DELETE http:/localhost:3000/api/v1/tyyppi/18
+

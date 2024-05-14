@@ -1,0 +1,31 @@
+###
+GET http:/localhost:3000/api/v1/kategoria
+
+
+###get kategoria by id
+GET http:/localhost:3000/api/v1/kategoria/1
+
+
+### get kategoria by name
+GET http:/localhost:3000/api/v1/kategoria/name/laktoositon
+
+
+### uusi kategoria
+POST http:/localhost:3000/api/v1/kategoria
+Content-Type: application/json
+
+{
+    "kategoria_nimi": "素食"
+}
+
+###Delete kategoria by id
+DELETE http:/localhost:3000/api/v1/kategoria/2
+
+
+###Update kategoria by id
+PUT http:/localhost:3000/api/v1/kategoria/3
+Content-Type: application/json
+
+{
+    "kategoria_nimi": "haloo"
+}

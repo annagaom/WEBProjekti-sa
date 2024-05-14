@@ -1,0 +1,44 @@
+###
+GET http:/localhost:3000/api/v1/yritystoiminta
+
+
+###get yritystoiminta by id
+GET http:/localhost:3000/api/v1/yritystoiminta/1
+
+
+###get yritystoiminta by tapahtu_pvm
+GET http:/localhost:3000/api/v1/yritystoiminta/pvm/2021-01-19
+
+
+###get all palaute between dates
+GET http:/localhost:3000/api/v1/yritystoiminta/2021-01-19/2024-05-06
+
+
+### uusi yritystoiminta
+POST http:/localhost:3000/api/v1/yritystoiminta
+Content-Type: application/json
+
+{
+    "tapahtu_pvm": "2024-05-06",
+    "tilaus_id": "132",
+    "myynti_hinta": "96.00",
+    "kustannus": "44.00",
+    "voitto": "52.00"
+}
+
+
+###Delete yritystoiminta by id
+DELETE http:/localhost:3000/api/v1/yritystoiminta/1
+
+
+###Update yritystoiminta by id
+PUT http:/localhost:3000/api/v1/yritystoiminta/2
+Content-Type: application/json
+
+{
+    "tapahtu_pvm": "2021-01-20",
+    "tilaus_id": "2",
+    "myynti_hinta": "45",
+    "kustannus": "23",
+    "voitto": "22"
+}

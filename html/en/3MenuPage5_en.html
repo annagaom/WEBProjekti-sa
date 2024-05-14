@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/3MenuPage5.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: "Welcome to enjoy cake and coffee!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Join our loyalty program and get 15% off your first order!";
+            }
+
+            40% {
+                content: "Membership is free";
+            }
+
+            60% {
+                content: "Create your dream cake!";
+            }
+
+            80% {
+                content: "Home delivery starting from €2.95";
+            }
+
+            100% {
+                content: "Welcome to enjoy cake and coffee!";
+            }
+        }
+    </style>
+
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/3MenuPage1.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Select language: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">Suomi</option>
+                            <option value="EN" selected>English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV">Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_en.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_en.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_en.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu_en.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-image"></a>
+                <img src="../css/kuvat/coffee.jpg" width="800px" height="300px" class="cakeImg" alt="coffee">
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_en.html" class="navItem">Home</a>
+        <a href="2AboutUs_en.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage_en.html">
+                Menu
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
+                <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
+                <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
+                <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
+                <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
+        <a href="6Poytavaraus_en.html" class="navItem">Book a venue</a>
+    </nav>
+
+    <div class="drinks-section">
+        <h2>DRINK MENU</h2>
+
+        <div class="filter-options">
+            <label for="cakeType">Select type:</label>
+            <select id="cakeType">
+                <option value="all3">All</option>
+                <option value="hotdrinks">Hot Drinks</option>
+                <option value="iceddrinks">Iced Coffees</option>
+                <option value="teas">Teas</option>
+                <option value="refreshments">Soft Drinks</option>
+            </select>
+        </div>
+
+        <div class="drink-category" id="cakeList">
+        </div>
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
+            </div>
+        </footer>
+</body>
+
+
+
+</html>

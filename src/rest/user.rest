@@ -1,0 +1,94 @@
+
+###
+GET http:/localhost:3000/api/v1/asiakas
+
+
+### uusi rekisteröityminen
+POST http:/localhost:3000/api/v1/asiakas
+Content-Type: application/json
+
+{
+    "etunimi": "Anna",
+    "sukunimi": "Gao-Mäkinen",
+    "tunnus": "annagaom",
+    "salasana": "12345",
+    "rooli": "admin",
+    "email": "annagao@ascafe.fi",
+    "puhelin": "12345",
+    "syntymapaiva": " 2002-01-01",
+    "ehdot_hyvaksytty": "1",
+    "allennus_ryhma": ""
+}
+###
+POST http:/localhost:3000/api/v1/asiakas/vieras
+Content-Type: application/json
+
+{
+    "etunimi": "vierasUser",
+    "sukunimi": "vieras",
+    "tunnus": "3",
+    "salasana": "123",
+    "rooli": "vieras",
+    "email": " ",
+    "puhelin": " 1234",
+    "syntymapaiva": " 2002-01-01",
+    "ehdot_hyvaksytty": "0",
+    "allennus_ryhma": ""
+}
+
+### uusi kirjautuminen
+POST http:/localhost:3000/api/v1/asiakas/login
+Content-Type: application/json
+
+{
+"tunnus": "squirrel", "salasana": "squirrel22"
+}
+
+###get user by username
+GET http:/localhost:3000/api/v1/asiakas/name/lalan
+
+###get user by id
+GET http:/localhost:3000/api/v1/asiakas/23
+
+###update user
+PUT http:/localhost:3000/api/v1/asiakas/6
+Content-Type: application/json
+
+{
+    "etunimi": "Lali",
+    "sukunimi": "Viisku",
+    "tunnus": "iisin",
+    "salasana": "12345",
+    "rooli": "admin",
+    "email": "ghd@asccafe.fi",
+    "puhelin": "1234567",
+    "syntymapaiva": "2009-04-05",
+    "ehdot_hyvaksytty": "true",
+    "allennus_ryhma": ""
+}
+
+### update user info
+PUT http:/localhost:3000/api/v1/asiakas/info/71
+Content-Type: application/json
+
+{
+  "etunimi": "Heidi",
+  "sukunimi": "Pappila",
+  "tunnus": "squirrel",
+  "email": "squirrel@metropolia.fi",
+  "puhelin": "123456789"
+}
+
+### update user password
+PUT http:/localhost:3000/api/v1/asiakas/password/71
+Content-Type: application/json
+
+{
+  "salasana": "squirrel22"
+}
+
+###
+GET http:/localhost:3000/api/v1/asiakas/info/71
+
+### check alennusryhmä
+GET http:/localhost:3000/api/v1/asiakas/alennus/71

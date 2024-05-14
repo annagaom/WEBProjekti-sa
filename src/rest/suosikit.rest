@@ -1,0 +1,22 @@
+###
+GET http:/localhost:3000/api/v1/suosikit
+
+
+###get suosikit by asiakas_id
+GET http:/localhost:3000/api/v1/suosikit/12
+
+
+### uusi suosikit
+POST http:/localhost:3000/api/v1/suosikit
+Content-Type: application/json
+
+{
+    "asiakas_id": "3",
+    "tuote_id": "3"
+}
+
+###Delete suosikit by asiakas_id and tuote_id
+DELETE http:/localhost:3000/api/v1/suosikit/3/3
+
+###Delete suosikit by asiakas_id and tuote_id
+DELETE http:/localhost:3000/api/v1/suosikit/12/18

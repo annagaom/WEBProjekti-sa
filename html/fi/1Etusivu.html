@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/1Etusivu.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+  <style>
+    .changecontent::after {
+      content: '';
+      color: rgb(192, 160, 122);
+      animation: changetext 10s infinite linear;
+      font-weight: bold;
+      margin: 10px;
+    }
+
+    @keyframes changetext {
+      0% {
+        content: "Herkullisia kakkuja";
+      }
+
+      50% {
+        content: "Kylmää tai lämmintä juotavaa";
+      }
+
+      100% {
+        content: "Lämmintä ruokaa ja naposteltavaa";
+      }
+    }
+
+    /* footer */
+
+    .changecontent2::after {
+      content: "Tervetuloa kakkukahveille!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+      }
+
+      40% {
+        content: "Liittyminen on maksutonta";
+      }
+
+      60% {
+        content: "Luo unelmiesi kakku!";
+      }
+
+      80% {
+        content: "Kotiinkuljetus alkaen 2,95€";
+      }
+
+      100% {
+        content: "Tervetuloa kakkukahveille!";
+      }
+    }
+  </style>
+
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/1Etusivu.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Valitse kieli: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI" selected>Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <main>
+
+    <div class="image-container">
+      <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+      <img src="../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
+    </div>
+
+    <nav id="navbar">
+      <a href="1Etusivu.html" class="navItem">Etusivu</a>
+      <a href="2AboutUs.html" class="navItem">About Us</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" id="menuButton" href="3MenuPage.html">
+          Menu
+        </a>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
+          <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+          <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+          <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+          <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
+        </div>
+      </div>
+
+      <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
+      <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
+    </nav>
+
+    <!-- etusivu-->
+
+    <div class="etusivu">
+      <aside class="aside1">
+        <h2>Tervetuloa S&A Kahvilaan!</h2>
+        <p>Erityiskakkumme</p>
+        <div class="imageFrontPage">
+          <img src="../css/kuvat/weddingCake.jpg" alt="Wedding Cake" class="imageFront">
+          <button class="prev" onclick="prevImage()">&#10094;</button>
+          <button class="next" onclick="nextImage()">&#10095;</button>
+        </div>
+        <p class="kuvaus">Tule nauttimaan herkullisista kakuistamme, laadukkaasta kahvista <br> ja kevyistä
+          ruokavaihtoehdoistamme.
+        </p>
+        <video width="800" controls>
+          <source src="../css/kuvat/video.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </aside>
+
+      <aside class="aside2">
+        <p>
+          <a href="3MenuPage.html" class="order">Tee tilaus!</a><br><br>
+        <h2>Menu: <span class="changecontent"></span></h2>
+        </p>
+
+        <article>
+          <h3>Aukioajat:</h3>
+          <p></p>
+          <p>Maanantai - Perjantai: 8:00 - 18:00</p>
+          <p>Lauantai - Sunnuntai: 10:00 - 16:00</p>
+          <p>Pyhäpäivät: - </p><br>
+          <p>Tilanvarauksen voit tehdä <a href="6Poytavaraus.html">tältä sivulta</a> tai sähköpostilla
+            osoitteeseen info@ascafe.fi</p>
+          <h3>Osoite:</h3>
+          <p></p>
+          <p>Myllypurontie 1, Helsinki</p>
+          <p>Puh: 09 74245000</p>
+          <a href="https://www.google.com/maps/dir/Albertinkatu+16,+00120+Helsinki/
+          /@60.1614905,24.9318391,16z/data=!3m1!4b1!4m9!4m8!1m5!1m1!1s0x46920bb5e3689cef:
+          0x7128a374063d6e31!2m2!1d24.936989!2d60.1614906!1m1!4e2?entry=ttu">Näytä kartalla</a>
+        </article>
+      </aside>
+    </div>
+
+    <footer class="footer-container">
+      <p class="footerP">&copy; S&A CAFE 2024</p>
+      <div class="changecontent2"></div>
+      <div class="footer">
+        <a href="10Paakayttaja.html">Pääkäyttäjän Tietohallinta</a><br>
+
+        <!-- palaute -->
+        <a href="#" id="openModal">Anna palautetta</a>
+
+        <dialog id="feedbackModal" class="modal">
+          <div class="modal-content">
+            <button class="clsbutton" id="closeModal">Sulje</button>
+            <form id="feedbackForm">
+              <label for="name">Nimi:</label>
+              <input type="text" id="name" name="name"><br>
+
+              <label for="email">Sähköposti:</label>
+              <input type="email" id="email" name="email"><br>
+
+              <label for="feedbackType">Palautteen tyyppi:</label>
+              <select id="feedbackType" name="feedbackType">
+                <option value="" disabled selected>Valitse...</option>
+                <option value="general">Yleinen palaute</option>
+                <option value="question">Kysymys</option>
+                <option value="suggestion">Ehdotus</option>
+                <option value="problem">Ongelma</option>
+                <option value="praise">Kehut</option>
+              </select><br>
+
+              <label for="message">Viesti:</label><br>
+              <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+              <input type="submit" value="Lähetä">
+            </form>
+          </div>
+        </dialog>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+
+</html>

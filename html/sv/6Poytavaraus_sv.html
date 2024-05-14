@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/6Poytavaraus.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    .changecontent::after {
+      content: "Välkommen till kak- och kaffemorgon!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Bli stamkund och få 15% rabatt på din första beställning!";
+      }
+
+      40% {
+        content: "Medlemskap är gratis";
+      }
+
+      60% {
+        content: "Skapa din drömkaka!";
+      }
+
+      80% {
+        content: "Hemleverans från 2,95€";
+      }
+
+      100% {
+        content: "Välkommen till kak- och kaffemorgon!";
+      }
+    }
+  </style>
+
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/6Poytavaraus.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Välj språk: </label>
+            <select id="kieli">
+              <option value="FI">Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV" selected>Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_sv.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_sv.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_sv.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+      <div class="image-container">
+        <a href="1Etusivu_sv.html"><img src="../css/kuvat/logo.png" class="logo" alt="logobild"></a>
+        <img src="../css/kuvat/tilanvaraus_header.jpg" width="800px" height="300px" class="cakeImg" alt="tårtor">
+      </div>
+    </div>
+  </header>
+  <nav class="navbarClass" id="navbar">
+    <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+    <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+    <div class="dropdown">
+      <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
+        Meny
+      </a>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
+        <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
+        <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
+        <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+        <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+    <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
+  </nav>
+
+  <div class="reserve">
+    <h1 class="reserve">Boka plats</h1>
+    <hr>
+    <p class="tilaP"><b>Välj det rum som bäst passar dina behov!</b> Vi erbjuder olika typer av rum för olika ändamål.
+      <br><br> Priserna för rummen varierar beroende på deras storlek och användningssyfte.
+      <br><br> Rumsbokningar är giltiga i <b>2–4 timmar.</b>
+      <br><br> För mer information, vänligen kontakta oss via e-post!
+      <hr><br> Du kan skicka en bokningsförfrågan via <a href="#" id="open-modal">detta formulär</a> eller genom att
+      mejla oss på: <b>info@ascafe.fi</b>
+      <br><br>
+    </p>
+
+    <!-- Modaali ikkuna -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Boka plats</h2>
+        <form id="bookingForm" onsubmit="return sendEmail();">
+          <div>
+            <label>Ditt Namn:</label>
+            <input type="text" name="name" required>
+          </div>
+          <div>
+            <label>Din E-post:</label>
+            <input type="email" name="email" required>
+          </div>
+          <div>
+            <label>Ditt Telefonnummer:</label>
+            <input type="tel" name="phone" required>
+          </div>
+          <div>
+            <label name="selected_space">Välj en Lokal:</label>
+            <select required>
+              <option>Baristans Hörn</option>
+              <option>Latte Lounge</option>
+              <option>S&A Special</option>
+            </select>
+          </div>
+          <div>
+            <label><b>Bokningsinformation</b></label>
+            <p>
+              För att säkerställa bästa möjliga service, vänligen meddela oss följande:
+            </p>
+            <ul>
+              <li><strong>Syfte:</strong> Vad är syftet med evenemanget?</li>
+              <li><strong>Datum:</strong> När äger evenemanget rum? Ange även datum.</li>
+              <li><strong>Tid:</strong> När börjar och slutar evenemanget?</li>
+              <li><strong>Antal Gäster:</strong> Hur många personer kommer att delta?</li>
+            </ul>
+            <textarea name="message" required></textarea>
+            <p>Efter att du skickat formuläret kommer vi att kontakta dig via e-post!</p>
+          </div>
+          <button class="lähetä" type="submit">Skicka</button>
+        </form>
+      </div>
+    </div>
+    <hr>
+
+    <main class="main">
+      <div class="aside2" id="register-id">
+        <h2>Baristans hörna</h2>
+        <hr>
+        <p></p>
+        <img src="../css/kuvat/tilaKuva1.jpg" alt="plats2" class="tila1">
+
+        <div>
+          <p>Denna plats är lämplig för 2 till 4 personer!</p>
+          <table border="0.5">
+            <tr>
+              <th>Storlek</th>
+              <th>Pris</th>
+            </tr>
+            <tr>
+              <td>25m<sup>2</sup></td>
+              <td>Från 40 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+
+      <div class="aside2" id="register-id">
+        <h2>Latte Lounge</h2>
+        <hr>
+        <p></p>
+        <img src="../css/kuvat/tilaKuva2.jpeg" alt="plats2" class="tila1">
+        <p></p>
+        <div>
+          <p>Denna plats är lämplig för 5 till 9 personer!</p>
+          <table border="0.5">
+            <tr>
+              <th>Storlek</th>
+              <th>Pris</th>
+            </tr>
+            <tr>
+              <td>35m<sup>2</sup></td>
+              <td>Från 60 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+
+      <div class="aside2" id="register-id">
+        <h2>S&A Special</h2>
+        <hr>
+        <p></p>
+        <img src="../css/kuvat/tilaKuva3.jpg" alt="plats2" class="tila1">
+        <p></p>
+        <div>
+          <p>Denna plats är lämplig för 10 till 15 personer!</p>
+          <table border="0.8">
+            <tr>
+              <th>Storlek</th>
+              <th>Pris</th>
+            </tr>
+            <tr>
+              <td>25m<sup>2</sup></td>
+              <td>Från 80 € / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+    </main>
+    <hr>
+
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
+
+</body>
+
+</html>

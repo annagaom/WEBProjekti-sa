@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/9Maksu.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/9Maksu.js" defer></script>
+</head>
+
+<style>
+    .changecontent::after {
+        content: "Welcome to enjoy cake and coffee!";
+        color: rgb(192, 160, 122);
+        animation: changetext2 10s infinite linear;
+        margin: 10px;
+        font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+        20% {
+            content: "Join our loyalty program and get 15% off your first order!";
+        }
+
+        40% {
+            content: "Membership is free";
+        }
+
+        60% {
+            content: "Create your dream cake!";
+        }
+
+        80% {
+            content: "Home delivery starting from €2.95";
+        }
+
+        100% {
+            content: "Welcome to enjoy cake and coffee!";
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Select language: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">Suomi</option>
+                            <option value="EN" selected>English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV">Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_en.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_en.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_en.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_en.html" class="navItem">Home</a>
+        <a href="2AboutUs_en.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage_en.html">
+                Menu
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
+                <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
+                <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
+                <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
+                <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
+        <a href="6Poytavaraus_en.html" class="navItem">Book a venue</a>
+    </nav>
+
+    <h1>Payment Information</h1>
+    <hr>
+
+    <div class="form-container">
+        <form id="maksutiedotForm" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="eri_laskutus" name="different_billing">
+                <label for="different_billing">Is the billing address different from the shipping address?</label>
+            </div>
+
+            <div class="form-group" id="laskutus_osoite" style="display: none;">
+                <label for="billingAddress">Billing Address:</label>
+                <textarea id="billingAddress" name="billingAddress"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="mobile">MobilePay</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cardholderName">Cardholder's Name:</label>
+                <input type="text" id="cardholderName" name="cardholderName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cardNumber">Credit Card Number:</label>
+                <input type="text" id="cardNumber" name="cardNumber" pattern="\d{16}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="expirationDate">Card Expiration Date (MM/YY):</label>
+                <input type="text" id="expirationDate" name="expirationDate" pattern="\d{2}/\d{2}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" pattern="\d{3}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="deliveryInstructions">Delivery Instructions:</label>
+                <textarea id="deliveryInstructions" name="deliveryInstructions"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="preferredDeliveryTime">Preferred Delivery Time:</label>
+                <input type="time" id="preferredDeliveryTime" name="preferredDeliveryTime">
+            </div>
+
+            <div class="form-group">
+                <label for="alennus">Discount Code:</label>
+                <input type="text" id="alennus" name="alennus">
+                <button id="applyDiscountButton">Apply Code</button>
+            </div>
+
+            <div id="discountResult"></div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="agreement" name="agreement" required>
+                <label for="agreement">I accept the terms and conditions</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Submit Order</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

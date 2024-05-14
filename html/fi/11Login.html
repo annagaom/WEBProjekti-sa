@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/11Login.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/11Login.js" defer></script>
+  <script src="../javascript/11Register.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Valitse kieli: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI" selected>Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+      <div class="image-container">
+        <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+        <img src="../css/kuvat/login_header.png" width="800px" height="300px" class="cakeImg" alt="cakes">
+      </div>
+    </div>
+  </header>
+  <nav class="navbarClass" id="navbar">
+    <a href="1Etusivu.html" class="navItem">Etusivu</a>
+    <a href="2AboutUs.html" class="navItem">About Us</a>
+    <div class="dropdown">
+      <a class="dropdown-toggle" id="menuButton" href="3MenuPage.html">
+        Menu
+      </a>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
+        <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+        <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+        <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+        <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
+    <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
+  </nav>
+
+
+  <main class="main">
+    <div class="aside1" id="login-id">
+      <form id="login-form">
+        <label for="login-username"><b>Käyttäjätunnus</b></label>
+        <input type="text" name="login-username" id="login-username" placeholder="Syötä käyttäjätunnus" required
+          autofocus />
+
+        <label for="login-password"><b>Salasana</b></label>
+        <input type="password" name="login-password" id="login-password" placeholder="Syötä salasana" required />
+
+        <button id="login-button" type="submit">Kirjaudu</button>
+      </form>
+    </div>
+
+    <div class="aside2" id="register-id">
+      <p class="kayttajaP">Jos sinulla ei ole vielä käyttäjää, voit rekisteröityä tästä.</p>
+      <p>Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi. Liittyminen on maksutonta.
+      </p>
+      <hr><br>
+      <form id="register-form">
+        <label for="firstname">Etunimi: *</label>
+        <input type="text" name="firstname" id="firstname" placeholder="Etunimi" required autofocus />
+
+        <label for="lastname">Sukunimi: *</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Sukunimi" required autofocus />
+
+        <label for="tunnus">Käyttäjätunnus: *</label>
+        <input type="text" name="tunnus" id="tunnus" placeholder="Käyttäjätunnus" required autofocus />
+
+        <label for="password">Salasana: *</label>
+        <input type="password" id="password" name="password" placeholder="Salasana" required autofocus />
+
+        <label for="email">Sähköposti: *</label>
+        <input type="email" id="email" name="email" placeholder="Sähköposti" required autofocus />
+
+        <label for="phone">Puhelinnumero: *</label>
+        <input type="tel" id="phone" name="phone" placeholder="Puhelinnumero" required autofocus />
+
+        <label for="syntymapaiva">Syntymäaika:</label>
+        <input type="date" id="syntymapaiva" name="syntymapaiva" />
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="accept-1" name="ehdot_hyvaksytty" value="true">
+          <label for="accept-1">Hyväksyt verkkokaupan ehdot *</label><br>
+          <input type="checkbox" id="accept-2" name="markkinointi" value="true">
+          <label for="accept-2">Minulle saa lähettää markkinointiviestejä sähköpostitse</label><br><br>
+          Alennusryhmä: <br />
+          <input type="radio" id="opiskelija" name="status" value="Opiskelija">
+          <label for="opiskelija">Opiskelija</label>
+          <input type="radio" id="ope" name="status" value="Eläkeläinen">
+          <label for="elakelainen">Eläkeläinen</label>
+        </div>
+
+        <button type="submit">Tyhjennä lomake</button>
+        <button type="submit">Rekisteröidy</button>
+      </form>
+    </div>
+  </main>
+  <hr>
+
+
+</body>
+
+</html>

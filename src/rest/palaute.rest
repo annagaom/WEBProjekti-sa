@@ -1,0 +1,24 @@
+###
+GET http:/localhost:3000/api/v1/palaute
+
+
+### uusi user
+POST http:/localhost:3000/api/v1/palaute
+Content-Type: application/json
+
+{
+    "nimi": "",
+    "email": "",
+    "title": "Palaute",
+    "teksti": "Suosikki ravintolani!",
+    "pvm": "2021-01-22"
+}
+
+###Delete palaute by id
+DELETE http:/localhost:3000/api/v1/palaute/8
+
+###get palaute by pvm
+GET http:/localhost:3000/api/v1/palaute/2021-01-19
+
+###get all palaute between dates
+GET http:/localhost:3000/api/v1/palaute/2021-01-19/2021-01-29

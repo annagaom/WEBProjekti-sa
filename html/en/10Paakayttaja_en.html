@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/10Paakayttaja.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+  <style>
+    .changecontent::after {
+      content: "Welcome to enjoy cake and coffee!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Join our loyalty program and get 15% off your first order!";
+      }
+
+      40% {
+        content: "Membership is free";
+      }
+
+      60% {
+        content: "Create your dream cake!";
+      }
+
+      80% {
+        content: "Home delivery starting from €2.95";
+      }
+
+      100% {
+        content: "Welcome to enjoy cake and coffee!";
+      }
+    }
+  </style>
+
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/paakayttaja.js" defer></script>
+  <script src="../javascript/yritystoimintaHaku.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Select language: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Suomi</option>
+              <option value="EN" selected>English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_en.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_en.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_en.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+
+    </div>
+  </header>
+  <nav class="navbarClass" id="navbar">
+    <a href="1Etusivu_en.html" class="navItem">Home</a>
+    <a href="2AboutUs_en.html" class="navItem">About Us</a>
+    <div class="dropdown">
+      <a class="dropdown-toggle" id="menuButton" href="3MenuPage_en.html">
+        Menu
+      </a>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_en.html">Cakes</a>
+        <a class="dropdown-item" href="3MenuPage2_en.html">Savory</a>
+        <a class="dropdown-item" href="3MenuPage3_en.html">Sweet</a>
+        <a class="dropdown-item" href="3MenuPage4_en.html">Hot Food</a>
+        <a class="dropdown-item" href="3MenuPage5_en.html">Drinks</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto_en.html" class="navItem">Contact Us</a>
+    <a href="6Poytavaraus_en.html" class="navItem">Book a venue</a>
+  </nav>
+
+  <div id="backgroundOverlay" class="background-overlay"></div>
+
+  <!-- Mukautettu modal -->
+  <div id="customModal" class="custom-modal">
+    <div class="custom-modal-content">
+      <span class="close">&times;</span>
+      <p>Access denied: this page is for administrators only.</p>
+    </div>
+  </div>
+
+  <div class="ajan-section">
+    <h1>Product Management</h1>&nbsp;&nbsp;&nbsp;&nbsp;
+    <br>
+
+    <button class="button" id="newProductButton">New Product</button>
+  </div>
+
+  <div>
+    <p>Check editing details by searching for products.</p>
+    <input type="text" id="cakeSearch" placeholder="Search for product...">
+    <div class="filter-options">
+      <label for="cakeType">Select type:</label>
+      <select id="cakeType">
+        <option value="choose">Choose</option>
+        <option value="cakes">Cakes</option>
+        <option value="savory">Savory</option>
+        <option value="sweet">Sweet</option>
+        <option value="hotmeals">Hot Food</option>
+        <option value="drinks">Refreshments</option>
+      </select>
+    </div>
+    <div id="cakeList" class="cake-list"></div>
+    <hr>
+
+    <dialog id="tuoteModal">
+      <div>
+        <h2>Add a new product</h2>
+        <form id="tuoteForm" enctype="multipart/form-data">
+          <label for="tuote_nimi">Product name:</label>
+          <input type="text" id="tuote_nimi" name="tuote_nimi"><br>
+
+
+          <label for="tuote_kuvaus">Product description: </label><br>
+          <textarea id="tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">Picture: </label>
+          <input type="file" id="tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Price (€):</label>
+          <input type="number" step="0.01" id="tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">Cost (€):</label>
+          <input type="number" step="0.01" id="tuote_kustannus" name="tuote_kustannus"><br>
+
+          <label for="tuote_tyyppi">Product type:</label>
+          <select id="tuote_tyyppi" name="tyyppi_id">
+            <option value="16">Celebration Cakes</option>
+            <option value="17">Sweet Cakes</option>
+            <option value="18">Savory Cakes</option>
+            <option value="19">Salads</option>
+            <option value="20">Pastries</option>
+            <option value="22">Pies</option>
+            <option value="23">Sweet Pastries</option>
+            <option value="24">Other Sweets</option>
+            <option value="25">Chicken Dishes</option>
+            <option value="27">Other Hot Dishes</option>
+            <option value="27">Hot Drinks</option>
+            <option value="28">Ice Coffees</option>
+            <option value="29">Teas</option>
+            <option value="30">Refreshments</option>
+          </select>
+          <br>
+
+          <button id="saveButton" type="button">Add a product</button>
+          <button id="closeButton" type="button">Close</button>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog id="updateTuoteModal">
+      <div>
+        <h2>Edit Product</h2>
+        <form id="updateTuoteForm" enctype="multipart/form-data">
+          <input type="hidden" id="tuote_id" name="tuote_id">
+          <label for="tuote_nimi">Product Name:</label>
+          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+          <label for="tuote_kuvaus">Product Description:</label><br>
+          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">New Image (optional):</label>
+          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Price (€):</label>
+          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">Cost (€):</label>
+          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+          <button id="updateButton" type="button">Update Product</button>
+          <button id="closeUpdateButton" type="button">Close</button>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog id="kategoriatModal">
+      <h2>Add Special Diets</h2>
+      <div id="tuote_kategoriat">
+        <p>Categories:</p>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="7">
+        <label for="gluteeniton">Gluten-Free</label><br>
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="8">
+        <label for="laktoositon">Lactose-Free</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="9">
+        <label for="maidoton">Dairy-Free</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="10">
+        <label for="munaton">Egg-Free</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="11">
+        <label for="kasvis">Vegetarian</label><br>
+      </div>
+      <button id="addKategoriat" type="button">Add</button>
+
+      <div id="tuote_kategoriat2">
+        <h2>Remove Special Diets</h2>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="7">
+        <label for="gluteeniton">Gluten-Free</label><br>
+
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="8">
+        <label for="laktoositon">Lactose-Free</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="9">
+        <label for="maidoton">Dairy-Free</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="10">
+        <label for="munaton">Egg-Free</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="11">
+        <label for="kasvis">Vegetarian</label><br>
+
+      </div>
+      <button id="deleteKategoriat" type="button">Delete</button><br>
+
+      <button id="closeKategoriat" type="button">Close</button>
+    </dialog>
+
+    <div>
+      <h1>Business Monitoring</h1>
+      <h4>Check report for selected period, e.g., day, month, etc.</h4>
+
+      <label for="startDate1">Start Date:</label>
+      <input type="date" id="aloituspvm1" name="startDate1">
+      <label for="endDate1">End Date:</label>
+      <input type="date" id="lopetuspvm1" name="endDate1">
+      <button id="haeRaport" class="button2">Hae</button>
+
+      <div>
+
+        <table>
+          <tbody id="raportList">
+            <tr></tr>
+            <br>
+            <br>
+
+          </tbody>
+        </table>
+      </div>
+
+      <hr>
+
+      <div>
+        <h1>Feedback</h1>
+        <label for="aloituspvm">Start Date:</label>
+        <input type="date" id="aloituspvm" name="startDate">
+
+        <label for="lopetuspvm">End Date:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
+
+        <button id="haePalaute" class="button2">Search</button>
+        <table>
+          <tbody id="palaute"></tbody>
+        </table>
+      </div>
+
+      <h1>Add User</h1>
+      <p>Here you can add a new user</p>
+      <button id="openModal">Add New User</button>
+
+
+      <dialog id="userModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2>Add New User</h2>
+          <form id="userForm">
+            <label for="etunimi">First Name:</label>
+            <input type="text" id="etunimi" name="etunimi" required>
+
+            <label for="sukunimi">Last Name:</label>
+            <input type="text" id="sukunimi" name="sukunimi" required>
+
+            <label for="tunnus">Username:</label>
+            <input type="text" id="tunnus" name="tunnus" required>
+
+            <label for="salasana">Password:</label>
+            <input type="password" id="salasana" name="salasana" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="puhelin">Phone:</label>
+            <input type="tel" id="puhelin" name="puhelin" required>
+
+            <label for="syntymapaiva">Date of birth:</label>
+            <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+            <label for="rooli">Role:</label>
+            <select id="rooli" name="rooli">
+              <option value="user">User</option>
+              <option value="admin">Administrator</option>
+            </select>
+            <br>
+            <label for="alennus">Discount Category:</label>
+            <select id="alennus" name="alennus">
+              <option value="none">Choose</option>
+              <option value="opiskelija">Student</option>
+              <option value="elakelainen">Pensioner</option>
+            </select>
+
+            <br>
+            <br>
+
+            <div class="form-group checkbox-group">
+              <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
+              <label for="hyvaksyminen">Terms Accepted *</label>
+            </div>
+
+            <button class="userButton" type="submit">Add User</button>
+          </form>
+
+        </div>
+      </dialog>
+
+
+      <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+      </footer>
+</body>
+
+</html>

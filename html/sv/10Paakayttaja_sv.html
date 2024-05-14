@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/10Paakayttaja.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+  <style>
+    /* footer */
+
+    .changecontent::after {
+      content: "Välkommen till kak- och kaffemorgon!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Bli stamkund och få 15% rabatt på din första beställning!";
+      }
+
+      40% {
+        content: "Medlemskap är gratis";
+      }
+
+      60% {
+        content: "Skapa din drömkaka!";
+      }
+
+      80% {
+        content: "Hemleverans från 2,95€";
+      }
+
+      100% {
+        content: "Välkommen till kak- och kaffemorgon!";
+      }
+    }
+  </style>
+
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/paakayttaja.js" defer></script>
+  <script src="../javascript/yritystoimintaHaku.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Välj språk: </label>
+            <select id="kieli">
+              <option value="FI">Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV" selected>Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_sv.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_sv.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_sv.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <main>
+
+    <nav class="navbarClass" id="navbar">
+      <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+      <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
+          Meny
+        </a>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
+          <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
+          <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
+          <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+          <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+        </div>
+      </div>
+      <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+      <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
+    </nav>
+
+    <div id="backgroundOverlay" class="background-overlay"></div>
+
+    <!-- Mukautettu modal -->
+    <div id="customModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="close">&times;</span>
+        <p>Åtkomst nekad: den här sidan är endast för administratörer.</p>
+      </div>
+    </div>
+
+    <div class="ajan-section">
+      <h1>Produkthantering</h1>
+      <button class="button" id="newProductButton">Ny produkt</button>
+    </div>
+
+    <dialog id="tuoteModal">
+      <div>
+        <h2>Lägg till en ny produkt</h2>
+        <form id="tuoteForm" enctype="multipart/form-data">
+          <label for="tuote_nimi">Produktens namn:</label>
+          <input type="text" id="tuote_nimi" name="tuote_nimi" required><br>
+
+          <label for="tuote_kuvaus">Produktbeskrivning:</label><br>
+          <textarea id="tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">Bild:</label>
+          <input type="file" id="tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Pris (€):</label>
+          <input type="number" step="0.01" id="tuote_hinta" name="tuote_hinta" required><br>
+
+          <label for="tuote_kustannus">Kostnad (€):</label>
+          <input type="number" step="0.01" id="tuote_kustannus" name="tuote_kustannus"><br>
+
+          <label for="tuote_tyyppi">Produkttyp:</label>
+          <select id="tuote_tyyppi" name="tyyppi_id" required>
+            <option value="">Välj typ</option>
+            <option value="28">Festtårtor</option>
+            <option value="29">Söta tårtor</option>
+            <option value="30">Salta tårtor</option>
+            <option value="31">Pajer</option>
+            <option value="32">Sallader</option>
+            <option value="33">Pastejer</option>
+            <option value="34">Bakverk</option>
+            <option value="35">Andra Sötsaker</option>
+            <option value="36">Kycklingrätter</option>
+            <option value="37">Andra varma rätter</option>
+            <option value="38">Varma drycker</option>
+            <option value="39">Iskaffe</option>
+            <option value="40">Teer</option>
+            <option value="41">Läskedrycker</option>
+          </select>
+          <br>
+
+          <button id="saveButton" type="button">Lägg till produkt</button>
+          <button id="closeButton" type="button">Stäng</button>
+        </form>
+      </div>
+    </dialog>
+
+
+    <dialog id="updateTuoteModal">
+      <div>
+        <h2>Redigera produkt</h2>
+        <form id="updateTuoteForm" enctype="multipart/form-data">
+          <input type="hidden" id="tuote_id" name="tuote_id">
+          <label for="tuote_nimi">Produktens namn:</label>
+          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+          <label for="tuote_kuvaus">Produktens beskrivning:</label><br>
+          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">Ny bild (valfri):</label>
+          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Pris (€):</label>
+          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">Kostnad (€):</label>
+          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+          <button id="updateButton" type="button">Uppdatera produkt</button>
+          <button id="closeUpdateButton" type="button">Stäng</button>
+        </form>
+      </div>
+
+    </dialog>
+
+
+    <dialog id="kategoriatModal">
+      <h2>Lägg till specialdieter</h2>
+      <div id="tuote_kategoriat">
+        <p>Kategorier:</p>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="12">
+        <label for="gluteeniton">Glutenfri</label><br>
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="13">
+        <label for="laktoositon">Laktosfri</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="14">
+        <label for="maidoton">Mjölkfri</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="15">
+        <label for="munaton">Äggfri</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="16">
+        <label for="kasvis">Vegetarisk</label><br>
+      </div>
+      <button id="addKategoriat" type="button">Lägg till</button>
+
+      <div id="tuote_kategoriat2">
+        <h2>Ta bort specialdieter</h2>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="12">
+        <label for="gluteeniton">Glutenfri</label><br>
+
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="13">
+        <label for="laktoositon">Laktosfri</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="14">
+        <label for="maidoton">Mjölkfri</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="15">
+        <label for="munaton">Äggfri</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="16">
+        <label for="kasvis">Vegetarisk</label><br>
+
+      </div>
+      <button id="deleteKategoriat" type="button">Ta bort</button><br>
+
+      <button id="closeKategoriat" type="button">Stäng</button>
+    </dialog>
+
+    <div>
+      <p>Kontrollera redigeringsinformation genom att söka efter produkter.</p>
+      <input type="text" id="cakeSearch" placeholder="Sök efter produkt...">
+      <div class="filter-options">
+        <label for="cakeType">Välj typ:</label>
+        <select id="cakeType">
+          <option value="välja">Välja</option>
+          <option value="tårtor">Tårtor</option>
+          <option value="saltet">Salta rätter</option>
+          <option value="sött">Söta</option>
+          <option value="varmarätter">Varma Rätter</option>
+          <option value="drycker">Drycker</option>
+        </select>
+      </div>
+      <div id="cakeList" class="cake-list"></div>
+      <hr>
+
+      <div>
+        <h1>Företagsövervakning</h1>
+        <h4>Kontrollera rapport för vald period, t.ex. dag, månad, etc.</h4>
+        <label for="period">Välj period: </label>
+
+        <label for="startDatum1">Startdatum:</label>
+        <input type="date" id="aloituspvm1" name="startDatum1">
+        <label for="slutDatum1">Slutdatum:</label>
+        <input type="date" id="lopetuspvm1" name="slutDatum1">
+        <button id="haeRaport" class="button2">Sök</button>
+
+        <table>
+          <tbody id="raportList">
+            <br>
+            <br>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+
+      <div>
+        <h1>Återkoppling</h1>
+        <label for="aloituspvm">Startdatum:</label>
+        <input type="date" id="aloituspvm" name="startDate">
+
+        <label for="lopetuspvm">Slutdatum:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
+
+        <button id="haePalaute" class="button2">Sök</button>
+        <table>
+          <tbody id="palaute"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <h1>Lägg till användare</h1>
+    <p>Här kan du lägga till en ny användare</p>
+    <button id="openModal">Lägg till ny användare</button>
+
+
+    <dialog id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Lägg till ny användare</h2>
+        <form id="userForm">
+          <label for="etunimi">Förnamn:</label>
+          <input type="text" id="etunimi" name="etunimi" required>
+
+          <label for="sukunimi">Efternamn:</label>
+          <input type="text" id="sukunimi" name="sukunimi" required>
+
+          <label for="tunnus">Användarnamn:</label>
+          <input type="text" id="tunnus" name="tunnus" required>
+
+          <label for="salasana">Lösenord:</label>
+          <input type="password" id="salasana" name="salasana" required>
+
+          <label for="email">E-post:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="puhelin">Telefon:</label>
+          <input type="tel" id="puhelin" name="puhelin" required>
+
+          <label for="syntymapaiva">Födelsedatum:</label>
+          <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+          <label for="rooli">Roll:</label>
+          <select id="rooli" name="rooli">
+            <option value="user">Användare</option>
+            <option value="admin">Administratör</option>
+          </select>
+          <br>
+          <label for="alennus">Rabattkategori:</label>
+          <select id="alennus" name="alennus">
+            <option value="none">Välj</option>
+            <option value="opiskelija">Student</option>
+            <option value="elakelainen">Pensionär</option>
+          </select>
+
+          <br>
+          <br>
+          <div class="form-group checkbox-group">
+            <label for="ehdot_hyvaksytty">Villkor godkända</label>
+            <input type="checkbox" id="ehdot_hyvaksytty" name="ehdot_hyvaksytty" required>
+          </div>
+
+          <button class="userButton" type="submit">Lägg till användare</button>
+        </form>
+      </div>
+    </dialog>
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
+</body>
+
+</html>

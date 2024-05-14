@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/10Paakayttaja.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+  <style>
+    .changecontent::after {
+      content: "Tere tulemast kooki- ja kohvihommikule!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "Liitu püsikliendiks ja saa 15% soodustust esimeselt tellimuselt!";
+      }
+
+      40% {
+        content: "Liitumine on tasuta";
+      }
+
+      60% {
+        content: "Loo oma unistuste kook!";
+      }
+
+      80% {
+        content: "Kohaletoimetamine alates 2,95€";
+      }
+
+      100% {
+        content: "Tere tulemast kooki- ja kohvihommikule!";
+      }
+    }
+  </style>
+
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/paakayttaja.js" defer></script>
+  <script src="../javascript/yritystoimintaHaku.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Vali keel: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Suomi</option>
+              <option value="EN">Englanti</option>
+              <option value="CN">中文</option>
+              <option value="ET" selected>Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_et.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_et.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_et.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <nav id="navbar">
+      <a href="1Etusivu_et.html" class="navItem">Esileht</a>
+      <a href="2AboutUs_et.html" class="navItem">Meist</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" id="menuButton" href="3MenuPage_et.html">
+          Menüü
+        </a>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1_et.html">Koogid</a>
+          <a class="dropdown-item" href="3MenuPage2_et.html">Soolane</a>
+          <a class="dropdown-item" href="3MenuPage3_et.html">Magus</a>
+          <a class="dropdown-item" href="3MenuPage4_et.html">Soojendav toit</a>
+          <a class="dropdown-item" href="3MenuPage5_et.html">Jook</a>
+        </div>
+      </div>
+      <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
+      <a href="6Poytavaraus_et.html" class="navItem">Broneeri ruum</a>
+    </nav>
+
+    <div id="backgroundOverlay" class="background-overlay"></div>
+
+
+    <!-- Mukautettu modal -->
+    <div id="customModal" class="custom-modal">
+      <div class="custom-modal-content">
+        <span class="close">&times;</span>
+        <p>Juurdepääs keelatud: see leht on ainult administraatoritele.</p>
+      </div>
+    </div>
+
+    <div class="ajan-section">
+      <h1>Tootehaldus</h1>
+      <br>
+      <button class="button" id="newProductButton">Uus toode</button>
+
+    </div>
+
+    <dialog id="tuoteModal">
+      <div>
+        <h2>Lisa uus toode</h2>
+
+
+        <form id="tuoteForm" enctype="multipart/form-data">
+          <label for="tuote_nimi">Toote nimi:</label>
+          <input type="text" id="tuote_nimi" name="tuote_nimi" required><br>
+
+          <label for="tuote_kuvaus">Toote kirjeldus:</label><br>
+          <textarea id="tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">Pilt:</label>
+          <input type="file" id="tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Hind (€):</label>
+          <input type="number" step="0.01" id="tuote_hinta" name="tuote_hinta" required><br>
+
+          <label for="tuote_kustannus">Kulud (€):</label>
+          <input type="number" step="0.01" id="tuote_kustannus" name="tuote_kustannus"><br>
+
+          <label for="tuote_tyyppi">Toote tüüp:</label>
+          <select id="tuote_tyyppi" name="tyyppi_id" required>
+            <option value="">Vali tüüp</option>
+            <option value="42">Pidukoogid</option>
+            <option value="43">Magusad koogid</option>
+            <option value="44">Soolased koogid</option>
+            <option value="45">Pirukad</option>
+            <option value="46">Salatid</option>
+            <option value="47">Stritslid</option>
+            <option value="48">Saiakesed</option>
+            <option value="49">Muud Maiustused</option>
+            <option value="50">Kanaroad/option>
+            <option value="51">Muud Kuumad Toidud</option>
+            <option value="52">Kuumad Joogid</option>
+            <option value="53">Jääkohv</option>
+            <option value="54">Teed</option>
+            <option value="55">Karastusjoogid</option>
+          </select>
+          <br>
+
+          <button id="saveButton" type="button">Lisa toode</button>
+          <button id="closeButton" type="button">Sulge</button>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog id="updateTuoteModal">
+      <div>
+        <h2>Toote redigeerimine</h2>
+        <form id="updateTuoteForm" enctype="multipart/form-data">
+          <input type="hidden" id="tuote_id" name="tuote_id">
+          <label for="tuote_nimi">Toote nimi:</label>
+          <input type="text" id="update_tuote_nimi" name="tuote_nimi"><br>
+          <label for="tuote_kuvaus">Toote kirjeldus:</label><br>
+          <textarea id="update_tuote_kuvaus" name="tuote_kuvaus" rows="4"></textarea><br>
+
+          <label for="tuote_kuva">Uus pilt (valikuline):</label>
+          <input type="file" id="update_tuote_kuva" name="tuote_kuva" accept="image/*"><br>
+
+          <label for="tuote_hinta">Hind (€):</label>
+          <input type="number" step="0.01" id="update_tuote_hinta" name="tuote_hinta"><br>
+
+          <label for="tuote_kustannus">Kulu (€):</label>
+          <input type="number" step="0.01" id="update_tuote_kustannus" name="tuote_kustannus"><br>
+
+          <button id="updateButton" type="button">Uuenda toodet</button>
+          <button id="closeUpdateButton" type="button">Sulge</button>
+        </form>
+      </div>
+
+    </dialog>
+
+
+    <dialog id="kategoriatModal">
+      <h2>Lisa eridieedid</h2>
+      <div id="tuote_kategoriat">
+        <p>Kategooriad:</p>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="17">
+        <label for="gluteeniton">Gluteenivaba</label><br>
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="18">
+        <label for="laktoositon">Laktoosivaba</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="19">
+        <label for="maidoton">Piimatoodetevaba</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="20">
+        <label for="munaton">Munavaba</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="21">
+        <label for="kasvis">Taimetoit</label><br>
+      </div>
+      <button id="addKategoriat" type="button">Lisa</button>
+
+      <div id="tuote_kategoriat2">
+        <h2>Eemalda eridieedid</h2>
+        <input type="checkbox" id="gluteeniton" name="kategoriat" value="17">
+        <label for="gluteeniton">Gluteenivaba</label><br>
+
+        <input type="checkbox" id="laktoositon" name="kategoriat" value="18">
+        <label for="laktoositon">Laktoosivaba</label><br>
+
+        <input type="checkbox" id="maidoton" name="kategoriat" value="19">
+        <label for="maidoton">Piimatoodetevaba</label><br>
+
+        <input type="checkbox" id="munaton" name="kategoriat" value="20">
+        <label for="munaton">Munavaba</label><br>
+
+        <input type="checkbox" id="kasvis" name="kategoriat" value="21">
+        <label for="kasvis">Taimetoit</label><br>
+
+      </div>
+      <button id="deleteKategoriat" type="button">Eemalda</button><br>
+
+      <button id="closeKategoriat" type="button">Sulge</button>
+    </dialog>
+
+
+    <div>
+      <p>Kontrollige toimetamise üksikasju, otsides tooteid.</p>
+      <input type="text" id="cakeSearch" placeholder="Otsi toodet...">
+      <div class="filter-options">
+        <label for="cakeType">Valige tüüp:</label>
+        <select id="cakeType">
+          <option value="valige">Valige</option>
+          <option value="koogid">Koogid</option>
+          <option value="soolane">Soolane</option>
+          <option value="magus">Magus</option>
+          <option value="kuumtoit">Soojad toidud</option>
+          <option value="joogid">Joogid</option>
+        </select>
+      </div>
+      <div id="cakeList" class="cake-list"></div>
+      <hr>
+
+      <div>
+        <h1>Ärijälgimine</h1>
+        <h4>Kontrollige aruannet valitud perioodil, näiteks päev, kuu jne.</h4>
+        <label for="periood">Valige periood: </label>
+
+        <label for="algusKuupäev1">Alguskuupäev:</label>
+        <input type="date" id="aloituspvm1" name="algusKuupäev1">&nbsp; &nbsp; &nbsp;
+        <label for="loppKuupäev1">Lõppkuupäev:</label>
+        <input type="date" id="lopetuspvm1" name="loppKuupäev1"><br>
+
+
+        <table>
+
+          <tbody id="raportList">
+            <br>
+            <br>
+          </tbody>
+          <button id="haeRaport" class="button2">Otsi</button>
+        </table>
+      </div>
+      <hr>
+
+      <div>
+        <h1>Tagasiside</h1>
+        <label for="aloituspvm">Alguskuupäev:</label>
+        <input type="date" id="aloituspvm" name="startDate">
+
+        <label for="lopetuspvm">Lõppkuupäev:</label>
+        <input type="date" id="lopetuspvm" name="endDate">
+
+
+        <table>
+          <tbody id="palaute"></tbody>
+        </table>
+      </div><br>
+      <button id="haePalaute" class="button2">Otsi</button>
+    </div>
+
+    <h1>Lisa kasutaja</h1>
+    <p>Siin saad lisada uue kasutaja</p>
+    <button id="openModal">Lisa uus kasutaja</button>
+
+    <dialog id="userModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Lisa uus kasutaja</h2>
+        <form id="userForm">
+          <label for="etunimi">Eesnimi:</label>
+          <input type="text" id="etunimi" name="etunimi" required>
+          <label for="sukunimi">Perekonnanimi:</label>
+          <input type="text" id="sukunimi" name="sukunimi" required>
+
+          <label for="tunnus">Kasutajatunnus:</label>
+          <input type="text" id="tunnus" name="tunnus" required>
+
+          <label for="salasana">Salasõna:</label>
+          <input type="password" id="salasana" name="salasana" required>
+
+          <label for="email">E-post:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="puhelin">Telefon:</label>
+          <input type="tel" id="puhelin" name="puhelin" required>
+
+          <label for="syntymapaiva">Sünniaeg:</label>
+          <input type="date" id="syntymapaiva" name="syntymapaiva">
+
+          <label for="rooli">Roll:</label>
+          <select id="rooli" name="rooli">
+            <option value="user">Kasutaja</option>
+            <option value="admin">Administraator</option>
+          </select>
+          <br>
+          <label for="alennus">Allahindluste kategooria:</label>
+          <select id="alennus" name="alennus">
+            <option value="none">Vali</option>
+            <option value="opiskelija">Üliõpilane</option>
+            <option value="elakelainen">Pensionär</option>
+          </select>
+
+          <br>
+          <br>
+
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
+            <label for="hyvaksyminen">Tingimustega nõus *</label>
+          </div>
+          <button class="userButton" type="submit">Lisa kasutaja</button>
+        </form>
+      </div>
+    </dialog>
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/5Yhteydenotto.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: "Tere tulemast kooki- ja kohvihommikule!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Liitu püsikliendiks ja saa 15% soodustust esimeselt tellimuselt!";
+            }
+
+            40% {
+                content: "Liitumine on tasuta";
+            }
+
+            60% {
+                content: "Loo oma unistuste kook!";
+            }
+
+            80% {
+                content: "Kohaletoimetamine alates 2,95€";
+            }
+
+            100% {
+                content: "Tere tulemast kooki- ja kohvihommikule!";
+            }
+        }
+    </style>
+
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/5Yhteydenotto.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Vali keel: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">Suomi</option>
+                            <option value="EN">Englanti</option>
+                            <option value="CN">中文</option>
+                            <option value="ET" selected>Eesti</option>
+                            <option value="SV">Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_et.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_et.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_et.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+
+                <div class="kartta-container">
+                    <div id="map" style="width: 1050px; height: 300px;"></div>
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_et.html" class="navItem">Esileht</a>
+        <a href="2AboutUs_et.html" class="navItem">Meist</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage_et.html">
+                Menüü
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_et.html">Koogid</a>
+                <a class="dropdown-item" href="3MenuPage2_et.html">Soolane</a>
+                <a class="dropdown-item" href="3MenuPage3_et.html">Magus</a>
+                <a class="dropdown-item" href="3MenuPage4_et.html">Soojendav toit</a>
+                <a class="dropdown-item" href="3MenuPage5_et.html">Jook</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
+        <a href="6Poytavaraus_et.html" class="navItem">Broneeri ruum</a>
+    </nav>
+
+    <main class="mainTaustakuva">
+        <div class="contact-info">
+            <h3>KONTAKTINFO</h3>
+            <div class="contact-item">
+                <img src="../css/kuvat/location.png" width="20px" height="20px" class="loc" alt="asukoht">
+                <p class="contact">Aadress: <br> Albertinkatu 16 <br>00120 Helsinki <br>Soome</p>
+            </div>
+            <div class="contact-item">
+                <img src="../css/kuvat/email.png" width="20px" height="20px" class="email" alt="email">
+                <p class="contact">E-post: <br> info@ascafe.fi</p>
+            </div>
+            <div class="contact-item">
+                <img src="../css/kuvat/phone.png" width="20px" height="20px" class="phone" alt="telefon">
+                <p class="contact">Telefoninumber: <br> 044 5423713</p>
+            </div>
+        </div>
+
+        <div class="socials">
+            <a href="https://www.instagram.com/">
+                <span class="instagram" style="background-image: url('../css/kuvat/instagram.png')"></span>
+            </a>
+            <a href="https://www.facebook.com/">
+                <span class="facebook" style="background-image: url('../css/kuvat/facebook.png')"></span>
+            </a>
+            <a href="https://twitter.com/">
+                <span class="twitter" style="background-image: url('../css/kuvat/twitter.png')"></span>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
+</body>
+
+</html>

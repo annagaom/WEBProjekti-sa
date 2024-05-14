@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/1Etusivu.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: '';
+            color: rgb(192, 160, 122);
+            animation: changetext 10s infinite linear;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        @keyframes changetext {
+            0% {
+                content: "Läckra kakor";
+            }
+
+            50% {
+                content: "Kalla eller varma drycker";
+            }
+
+            100% {
+                content: "Varm mat och snacks";
+            }
+        }
+
+        /* footer */
+
+        .changecontent2::after {
+            content: "Välkommen till kak- och kaffemorgon!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Bli stamkund och få 15% rabatt på din första beställning!";
+            }
+
+            40% {
+                content: "Medlemskap är gratis";
+            }
+
+            60% {
+                content: "Skapa din drömkaka!";
+            }
+
+            80% {
+                content: "Hemleverans från 2,95€";
+            }
+
+            100% {
+                content: "Välkommen till kak- och kaffemorgon!";
+            }
+        }
+    </style>
+
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/1Etusivu.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Välj språk: </label>
+                        <select id="kieli">
+                            <option value="FI">Suomi</option>
+                            <option value="EN">English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV" selected>Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_sv.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_sv.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_sv.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <main>
+
+        <div class="image-container">
+            <a href="1Etusivu_sv.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+            <img src="../css/kuvat/cakepic.jpg" class="cakeImg" alt="cakes">
+        </div>
+
+        <nav id="navbar">
+            <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+            <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+            <div class="dropdown">
+                <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
+                    Meny
+                </a>
+                <div class="dropdown-menu" id="menuDropdown">
+                    <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
+                    <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
+                    <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
+                    <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+                    <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+                </div>
+            </div>
+            <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+            <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
+        </nav>
+
+        <!-- Etusivu-->
+
+        <div class="etusivu">
+            <aside class="aside1">
+                <h2>Välkommen till S&A Cafe!</h2>
+                <p>Våra specialtårtor</p>
+                <div class="imageFrontPage">
+                    <img src="../css/kuvat/weddingCake.jpg" alt="Wedding Cake" class="imageFront">
+                    <button class="prev" onclick="prevImage()">&#10094;</button>
+                    <button class="next" onclick="nextImage()">&#10095;</button>
+                </div>
+                <p class="kuvaus">Kom och njut av våra läckra kakor, kvalitetskaffe och lätta
+                    matalternativ.
+                </p>
+                <video width="800" controls>
+                    <source src="../css/kuvat/video.m4v" type="video/mp4">
+                    Din webbläsare stöder inte HTML5-video.
+                </video>
+            </aside>
+
+            <aside class="aside2">
+                <p>
+                    <a href="3MenuPage_sv.html" class="order">Beställ nu!</a><br><br>
+                <h2>Meny: <span class="changecontent"></span></h2>
+                </p>
+
+                <article>
+                    <h3>Öppettider:</h3>
+                    <p></p>
+                    <p>Måndag - Fredag: 8:00 - 18:00</p>
+                    <p>Lördag - Söndag: 10:00 - 16:00</p>
+                    <p>Helgdagar: - </p><br>
+                    <p>Du kan boka ett bord <a href="6Poytavaraus_sv.html">på den här sidan</a>
+                        eller via e-post till info@ascafe.fi</p>
+
+                    <h3>Adress:</h3>
+                    <p></p>
+                    <p>Myllypurontie 1, Helsingfors</p>
+                    <p>Tel: 09 74245000</p>
+                    <a href="https://www.google.com/maps/place/Myllypurontie+1,+00920+Helsinki/@60.2234965,25.
+              0753497,17z/data=!3m1!4b1!4m6!3m5!1s0x4692097d49be7743:0x44d7181298503381!8m2!3d60.2234939!
+              4d25.0779246!16s%2Fg%2F11s0xwydly?entry=ttu">Visa på karta</a>
+                </article>
+            </aside>
+        </div>
+
+        <footer class="footer-container">
+            <p class="footerP">&copy; S&A CAFE 2024</p>
+            <div class="changecontent2">
+            </div>
+            <div class="footer">
+                <a href="10Paakayttaja_sv.html">Huvudadministratörens IT-hantering</a><br>
+
+                <!-- palaute -->
+                <a href="#" id="openModal">Ge feedback</a>
+
+                <dialog id="feedbackModal" class="modal">
+                    <div class="modal-content">
+                        <button class="clsbutton" id="closeModal">Stäng</button>
+                        <form id="feedbackForm">
+                            <label for="name">Namn:</label>
+                            <input type="text" id="name" name="name"><br>
+
+                            <label for="email">E-post:</label>
+                            <input type="email" id="email" name="email"><br>
+
+                            <label for="feedbackType">Feedbacktyp:</label>
+                            <select id="feedbackType" name="feedbackType">
+                                <option value="" disabled selected>Välj...</option>
+                                <option value="general">Allmän feedback</option>
+                                <option value="question">Fråga</option>
+                                <option value="suggestion">Förslag</option>
+                                <option value="problem">Problem</option>
+                                <option value="praise">Beröm</option>
+                            </select><br>
+
+                            <label for="message">Meddelande:</label><br>
+                            <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+                            <input type="submit" value="Skicka">
+                        </form>
+                    </div>
+                </dialog>
+
+            </div>
+        </footer>
+
+
+    </main>
+</body>
+
+</html>

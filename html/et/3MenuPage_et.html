@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/3MenuPage.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: "Tere tulemast kooki- ja kohvihommikule!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Liitu püsikliendiks ja saa 15% soodustust esimeselt tellimuselt!";
+            }
+
+            40% {
+                content: "Liitumine on tasuta";
+            }
+
+            60% {
+                content: "Loo oma unistuste kook!";
+            }
+
+            80% {
+                content: "Kohaletoimetamine alates 2,95€";
+            }
+
+            100% {
+                content: "Tere tulemast kooki- ja kohvihommikule!";
+            }
+        }
+    </style>
+
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/3MenuPage.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Vali keel: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">Suomi</option>
+                            <option value="EN">Englanti</option>
+                            <option value="CN">中文</option>
+                            <option value="ET" selected>Eesti</option>
+                            <option value="SV">Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_et.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_et.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_et.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu_et.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../css/kuvat/menu.jpg" class="cakeImg" alt="cakes">
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_et.html" class="navItem">Esileht</a>
+        <a href="2AboutUs_et.html" class="navItem">Meist</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage_et.html">
+                Menüü
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_et.html">Koogid</a>
+                <a class="dropdown-item" href="3MenuPage2_et.html">Soolane</a>
+                <a class="dropdown-item" href="3MenuPage3_et.html">Magus</a>
+                <a class="dropdown-item" href="3MenuPage4_et.html">Soojendav toit</a>
+                <a class="dropdown-item" href="3MenuPage5_et.html">Jook</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
+        <a href="6Poytavaraus_et.html" class="navItem">Broneeri ruum</a>
+    </nav>
+
+    <div class="containerMenu">
+        <div class="menu-text">
+            <h1>Meie menüü</h1>
+            <p>Avasta meie maitsvaid roogasid ja jooke, mis on valmistatud värskest ja kvaliteetsest toorainest. Leidke
+                uusi lemmikuid!</p>
+        </div>
+        <table class="menu-links">
+            <tr>
+                <td class="menuItem"><a href="3MenuPage1_et.html">Koogid</a></td>
+                <td>
+                    <p>Naudi meie maitsvaid ja värskeid kooke erinevate sündmuste jaoks.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="menuItem"><a href="3MenuPage2_et.html">Soolane</a></td>
+                <td>
+                    <p>Ava meie soolased pirukad ja pannkoogid.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="menuItem"><a href="3MenuPage3_et.html">Magus</a></td>
+                <td>
+                    <p>Maitse meie magusaid karamelle ja küpsetisi, mis rõõmustavad igat magusasõpra.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="menuItem"><a href="3MenuPage4_et.html">Soojad toidud</a></td>
+                <td>
+                    <p>Naudi meie sooje suppe ja pastasid, mis rahuldavad nälga.</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="menuItem"><a href="3MenuPage5_et.html">Joogid</a></td>
+                <td>
+                    <p>Proovi meie värskendavaid kohvi-, tee- ja karastusjooke.</p>
+                </td>
+            </tr>
+        </table>
+        <div class="imageFrontPage">
+            <img src="../css/kuvat/cakeMenu.jpg" alt="Ruoan kuva" class="food-image">
+            <button class="prev" onclick="prevImage()">&#10094;</button>
+            <button class="next" onclick="nextImage()">&#10095;</button>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
+</body>
+
+</html>

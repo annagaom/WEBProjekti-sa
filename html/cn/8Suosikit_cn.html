@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/8Suosikit.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style>
+    /* footer */
+
+    .changecontent2::after {
+      content: "Tervetuloa kakkukahveille!";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext2 {
+      20% {
+        content: "加入会员， 第一次消费可享受15%的折扣!";
+      }
+
+      40% {
+        content: "无需手续费";
+      }
+
+      60% {
+        content: "创建你的梦想蛋糕！";
+      }
+
+      80% {
+        content: "运费 2,95€";
+      }
+
+      100% {
+        content: "欢迎前来品尝！";
+      }
+    }
+  </style>
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/8Suosikit.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">请选择语言: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN" selected>中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_cn.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_cn.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_cn.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <main>
+
+    <nav id="navbar">
+      <a href="1Etusivu_cn.html" class="navItem">首页</a>
+      <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" id="menuButton" href="3MenuPage_cn.html">
+          菜单
+        </a>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1_cn.html">蛋糕</a>
+          <a class="dropdown-item" href="3MenuPage2_cn.html">咸味食品</a>
+          <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
+          <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+          <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+        </div>
+      </div>
+      <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
+      <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
+    </nav>
+
+    <div class="table, cake-list" id="cakeList">
+    </div>
+
+    <h1>店家推荐</h1>
+    <div class="carousel">
+      <button class="prev-button">&lt;</button>
+      <div class="image-container">
+        <img src="../css/kuvat/whitecake.jpg" alt="Kuva 1">
+        <img src="../css/kuvat/cake_piece.jpg" alt="Kuva 2">
+        <img src="../css/kuvat/strawberry_cake.jpg" alt="Kuva 3">
+        <img src="../css/kuvat/creamcake.jpg" alt="Kuva 4">
+        <img src="../css/kuvat/oreocake.jpg" alt="Kuva 5">
+        <img src="../css/kuvat/pink_dream.jpg" alt="Kuva 6">
+        <img src="../css/kuvat/kindercake.jpg" alt="Kuva 7">
+        <img src="../css/kuvat/whitecake.jpg" alt="Kuva 8">
+      </div>
+      <button class="next-button">&gt;</button>
+    </div>
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent2">
+      </div>
+    </footer>
+  </main>
+
+</body>
+
+</html>

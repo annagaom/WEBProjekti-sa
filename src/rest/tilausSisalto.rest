@@ -1,0 +1,58 @@
+###
+GET http:/localhost:3000/api/v1/tilaus_sisalto
+
+
+###get tilaus_sisalto by id
+GET http:/localhost:3000/api/v1/tilaus_sisalto/3
+
+
+###get tilaus_sisalto by tilaus_id
+GET http:/localhost:3000/api/v1/tilaus_sisalto/tilaus/132
+
+
+###get tilaus_sisalto tilaus_pvm by tuote_id
+GET http:/localhost:3000/api/v1/tilaus_sisalto/pvm/tilaus_pvm/23
+
+
+###get tilaus_sisalto by tilaus_pvm
+GET http:/localhost:3000/api/v1/tilaus_sisalto/pvm/2024-04-26
+
+###get all tilaus_sisalto between dates
+
+GET http:/localhost:3000/api/v1/tilaus_sisalto/2024-04-19/2024-04-29
+
+
+### uusi tilaus_sisalto
+POST http:/localhost:3000/api/v1/tilaus_sisalto
+Content-Type: application/json
+
+{
+  "tilaus_id": "23",
+  "tuote_id": "9",
+  "maara": "3",
+  "myynti_summa": "48.00",
+  "kustannus_summa": "22.00",
+  "tilaus_pvm": "2024-05-09",
+  "status": "Tilaus vastaanotettu",
+  "voitto": "26.00"
+}
+
+
+
+###Delete tilaus_sisalto by id
+DELETE http:/localhost:3000/api/v1/tilaus_sisalto/1
+
+
+###Update tilaus_sisalto by id
+PUT http:/localhost:3000/api/v1/tilaus_sisalto/2
+Content-Type: application/json
+
+{
+    "tilaus_id": "2",
+    "tuote_id": "1",
+    "maara": "1",
+    "myynti_summa": "4.50",
+    "kustannus_summa": "2.50",
+    "tilaus_pvm": "2024-03-20",
+    "status": "Lähtetty"
+}

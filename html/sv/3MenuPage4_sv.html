@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/3MenuPage4.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: "Välkommen till kak- och kaffemorgon!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Bli stamkund och få 15% rabatt på din första beställning!";
+            }
+
+            40% {
+                content: "Medlemskap är gratis";
+            }
+
+            60% {
+                content: "Skapa din drömkaka!";
+            }
+
+            80% {
+                content: "Hemleverans från 2,95€";
+            }
+
+            100% {
+                content: "Välkommen till kak- och kaffemorgon!";
+            }
+        }
+    </style>
+
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/3MenuPage1.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Välj språk: </label>
+                        <select id="kieli">
+                            <option value="FI">Suomi</option>
+                            <option value="EN">English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV" selected>Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_sv.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_sv.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_sv.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+                <a href="1Etusivu_sv.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+                <img src="../css/kuvat/food.jpg" width="800px" height="300px" class="cakeImg" alt="warmfood">
+            </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+        <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
+                Meny
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
+                <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
+                <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
+                <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+                <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+        <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
+    </nav>
+
+    <div class="hot-food-section">
+        <h2>VARM MAT</h2>
+
+        <div class="filter-options">
+            <label for="cakeType">Välj typ:</label>
+            <select id="cakeType">
+                <option value="alla2">Alla</option>
+                <option value="kycklingrätter">Kycklingrätter</option>
+                <option value="andravarmarätter">Andra varma rätter</option>
+            </select>
+        </div>
+
+        <div class="hot-food-category" id="cakeList">
+        </div>
+
+
+
+        <footer>
+            <p>&copy; S&A CAFE 2024</p>
+            <div class="changecontent">
+            </div>
+        </footer>
+</body>
+
+</html>

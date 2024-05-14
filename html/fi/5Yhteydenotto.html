@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/5Yhteydenotto.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+    <style>
+        /* footer */
+
+        .changecontent::after {
+            content: "Tervetuloa kakkukahveille!";
+            color: rgb(192, 160, 122);
+            animation: changetext 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext {
+            20% {
+                content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+            }
+
+            40% {
+                content: "Liittyminen on maksutonta";
+            }
+
+            60% {
+                content: "Luo unelmiesi kakku!";
+            }
+
+            80% {
+                content: "Kotiinkuljetus alkaen 2,95€";
+            }
+
+            100% {
+                content: "Tervetuloa kakkukahveille!";
+            }
+        }
+    </style>
+
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/5Yhteydenotto.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Valitse kieli: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI" selected>Suomi</option>
+                            <option value="EN">English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV">Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+            <div class="image-container">
+
+                <div id="map"></div>
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" rel="stylesheet">
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+            </div>
+        </div>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu.html" class="navItem">Etusivu</a>
+        <a href="2AboutUs.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage.html">
+                Menu
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
+                <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+                <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+                <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+                <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
+        <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
+    </nav>
+
+    <main class="mainTaustakuva">
+        <div class="contact-info">
+            <h3>YHTEYSTIEDOT</h3>
+            <div class="contact-item">
+                <img src="../css/kuvat/location.png" width="20px" height="20px" class="loc" alt="location">
+                <p class="contact">Osoite: <br> Albertinkatu 16 <br>00120 Helsinki <br>Suomi</p>
+            </div>
+            <div class="contact-item">
+                <img src="../css/kuvat/email.png" width="20px" height="20px" class="email" alt="email">
+                <p class="contact">Sähköposti: <br> info@ascafe.fi</p>
+            </div>
+            <div class="contact-item">
+                <img src="../css/kuvat/phone.png" width="20px" height="20px" class="phone" alt="phone">
+                <p class="contact">Puhelinnumero: <br> 044 5423713</p>
+            </div>
+        </div>
+
+        <div class="socials">
+            <a href="https://www.instagram.com/">
+                <span class="instagram" style="background-image: url('../css/kuvat/instagram.png')"></span>
+            </a>
+            <a href="https://www.facebook.com/">
+                <span class="facebook" style="background-image: url('../css/kuvat/facebook.png')"></span>
+            </a>
+            <a href="https://twitter.com/">
+                <span class="twitter" style="background-image: url('../css/kuvat/twitter.png')"></span>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
+</body>
+
+</html>

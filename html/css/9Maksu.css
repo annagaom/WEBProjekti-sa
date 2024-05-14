@@ -1,0 +1,393 @@
+body {
+    font-family: 'Tahoma', sans-serif;
+    margin: auto;
+    width: 90%;
+    padding: 10px;
+}
+
+.container {
+    width: 100%;
+}
+
+header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-link__icon[data-v-007d9333] {
+    width: 12px;
+    height: 12px;
+    margin-right: var(--spacing-small)
+}
+
+.title {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.icons {
+    text-align: right;
+    display: flex;
+    width: 100%;
+    display: inline-block;
+    background: none;
+    justify-content: right;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 90%;
+    height: 240px;
+    padding: 7% 0;
+    margin-right: 20px;
+}
+
+.cakeImg {
+    box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
+    width: 80%;
+    height: 300px;
+}
+
+.käyttäjä {
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
+
+}
+
+.suosikit {
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
+}
+
+.ostoskori {
+    display: inline-block;
+    margin: 10px;
+    font-size: 20px;
+    background-size: cover;
+}
+
+.kieli {
+    margin: 7px 10px 0px 0px;
+}
+
+#kieli {
+    background-color: rgb(192, 160, 122);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Tahoma', sans-serif;
+
+}
+
+#kieli {
+    background-color: rgb(192, 160, 122);
+    color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    font-family: 'Tahoma', sans-serif;
+}
+
+/* navigation bar */
+
+a {
+    text-decoration: none;
+    color: #df810f;
+    font-size: bold;
+}
+
+nav {
+    background-color: rgb(192, 160, 122);
+    padding: 10px 3px 10px 3px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: right;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+
+.navItem {
+    display: inline-block;
+    color: #fff;
+    text-shadow: 1px 1px 1px black;
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+}
+
+.navItem:hover {
+    text-decoration: none;
+    color: #dfd7cd;
+}
+
+.dropdown {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    top: 100%;
+    left: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Tahoma', sans-serif;
+    text-shadow: 1px 1px 1px black;
+}
+
+.dropdown-toggle:hover {
+    text-decoration: underline;
+}
+
+.dropdown-menu a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #eceae9;
+
+}
+
+/* main */
+
+h1 {
+    text-align: center;
+}
+
+.form-container {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group .checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group .checkbox-group input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.form-group button {
+    width: 140px;
+    height: 48px;
+    background-color: rgb(217, 124, 48);
+    color: white;
+    padding: 10px;
+    border-radius: 1rem;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: rgb(174, 94, 30);
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-group label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-group label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+.checkbox-group input[type="checkbox"]:checked+label::before {
+    background-color: rgb(217, 124, 48);
+    border: none;
+}
+
+.checkbox-group label::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background-color: transparent;
+}
+
+#applyDiscountButton {
+    width: 100px;
+    height: 48px;
+    background-color: rgb(217, 124, 48);
+    color: white;
+    padding: 10px;
+    border-radius: 1rem;
+    margin-bottom: 20px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* media */
+
+@media screen and (min-width:801px) {
+
+    .cakeImg {
+        width: 80%
+    }
+}
+
+@media screen and (max-width:800px) {
+
+    .icons ul li {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .icons ul li a {
+        display: block;
+        padding: 5px;
+    }
+
+    .logo {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .cakeImg {
+        margin-top: 0;
+    }
+
+    .cake-item td:first-child {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+
+@media screen and (max-width:534px) {
+
+    .content h2 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .content h2 {
+        font-size: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .dropdown,
+    .navItem {
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    .form-container {
+        width: 90%;
+    }
+
+    .form-group {
+        width: 90%;
+    }
+}

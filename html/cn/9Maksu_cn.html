@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/9Maksu.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/9Maksu.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+
+                    <li class="kieli">
+                        <label for="kieli">请选择语言: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI">Suomi</option>
+                            <option value="EN">English</option>
+                            <option value="CN" selected>中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV">Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_cn.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_cn.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_cn.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <main>
+        <nav id="navbar">
+            <a href="1Etusivu_cn.html" class="navItem">首页</a>
+            <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
+            <div class="dropdown">
+                <a class="dropdown-toggle" id="menuButton" href="3MenuPage_cn.html">
+                    菜单
+                </a>
+                <div class="dropdown-menu" id="menuDropdown">
+                    <a class="dropdown-item" href="3MenuPage1_cn.html">蛋糕</a>
+                    <a class="dropdown-item" href="3MenuPage2_cn.html">咸味食品</a>
+                    <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
+                    <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+                    <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+                </div>
+            </div>
+            <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
+            <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
+        </nav>
+
+        <h1>支付信息</h1>
+        <hr>
+
+        <div class="form-container">
+            <form id="maksutiedotForm" method="post">
+                <div class="form-group">
+                    <label for="nimi">姓名:</label>
+                    <input type="text" id="nimi" name="nimi" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sahkoposti">电子邮箱地址:</label>
+                    <input type="email" id="sahkoposti" name="sahkoposti" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="puhelin">电话号码:</label>
+                    <input type="text" id="puhelin" name="puhelin" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="osoite">收货地址:</label>
+                    <textarea id="osoite" name="osoite" required></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="eri_laskutus" name="eri_laskutus">
+                    <label for="eri_laskutus">账单地址与收货地址是否不同？</label>
+                </div>
+
+                <div class="form-group" id="laskutus_osoite" style="display: none;">
+                    <label for="laskutusosoite">账单地址:</label>
+                    <textarea id="laskutusosoite" name="laskutusosoite"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="maksutapa">付款方式:</label>
+                    <select id="maksutapa" name="maksutapa" required>
+                        <option value="kredit">信用卡</option>
+                        <option value="pankki">银行卡</option>
+                        <option value="mobile">MobilePay</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="kortin_haltija">持卡人姓名:</label>
+                    <input type="text" id="kortin_haltija" name="kortin_haltija" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="kortin_numero">信用卡号码:</label>
+                    <input type="text" id="kortin_numero" name="kortin_numero" pattern="\d{16}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="voimassaoloaika">卡片有效期（MM/YY）:</label>
+                    <input type="text" id="voimassaoloaika" name="voimassaoloaika" pattern="\d{2}/\d{2}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="cvv">CVV代码:</label>
+                    <input type="text" id="cvv" name="cvv" pattern="\d{3}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="toimitusohjeet">配送说明:</label>
+                    <textarea id="toimitusohjeet" name="toimitusohjeet"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="toimitusaika">期望的配送时间:</label>
+                    <input type="time" id="toimitusaika" name="toimitusaika">
+                </div>
+
+                <div class="form-group">
+                    <label for="alennus">优惠码：</label>
+                    <input type="text" id="alennus" name="alennus">
+                    <button id="applyDiscountButton">使用优惠码</button>
+                </div>
+
+                <div id="discountResult"></div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
+                    <label for="hyvaksyminen">我接受条款和条件</label>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">提交订单</button>
+                </div>
+
+            </form>
+        </div>
+
+
+</body>
+
+</html>

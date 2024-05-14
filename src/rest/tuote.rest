@@ -1,0 +1,107 @@
+###
+GET http:/localhost:3000/api/v1/tuote
+
+
+###get tuote by id
+GET http:/localhost:3000/api/v1/tuote/17
+
+###get tuote by tyyppi id
+GET http:/localhost:3000/api/v1/tuote/tyyppi_id/2
+
+###get tuote by user id
+GET http:/localhost:3000/api/v1/tuote/maara/12
+
+### getviimeinen tuote id
+GET http:/localhost:3000/api/v1/tuote/lastid/
+
+### get kategoria by name
+GET http:/localhost:3000/api/v1/tuote/name/jääkahvi
+
+### get tuote by kuva
+GET http:/localhost:3000/api/v1/tuote/tuote_kuva-1714741116519.png/FI
+
+
+
+### uusi tuote
+POST http:/localhost:3000/api/v1/tuote
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_nimi"
+
+定制蛋糕
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kuvaus"
+
+我们提供独特的定制蛋糕，完全根据客户的要求设计。当您下订单时，我们会通过电子邮件与您联系，以确认所有细节。我们制作各种活动的蛋糕，如生日、婚礼和公司活动，确保最终产品符合您的期望。
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_hinta"
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kustannus"
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tyyppi_id"
+
+59
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kuva"; filename="custom.jpg"
+Content-Type: image/jpeg
+
+< kuvat/kakut/custom.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+###Delete tuote by id
+DELETE http:/localhost:3000/api/v1/tuote/2
+
+#
+
+###Update tuote by id, käydä postman to update
+PUT http:/localhost:3000/api/v1/tuote/50
+Content-Type: application/json
+
+{
+    "tuote_nimi": "Americano",
+    "tuote_hinta": "4.25",
+    "tuote_kustannus": "2.00",
+    "tyyppi_id": "12"
+}
+
+### update
+PUT http:/localhost:3000/api/v1/tuote/336
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_nimi"
+
+uusi
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kuvaus"
+
+taas
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_hinta"
+
+10.00
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kustannus"
+
+2.00
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tuote_kuva"; filename="fetacake.jpg"
+Content-Type: image/jpeg
+
+< kuvat/kakut/fetacake.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+
+
+### get tuote by id lang ja hinta
+GET http:/localhost:3000/api/v1/tuote/137/EN/51.00
+
+
+### get tuote by id lang
+GET http:/localhost:3000/api/v1/tuote/FI/51.00

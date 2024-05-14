@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/11Login.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/11Login.js" defer></script>
+  <script src="../javascript/11Register.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Välj språk: </label>
+            <select id="kieli">
+              <option value="FI">Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV" selected>Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_sv.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_sv.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_sv.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+      <div class="image-container">
+        <a href="1Etusivu_sv.html"><img src="../css/kuvat/logo.png" class="logo" alt="logobild"></a>
+        <img src="../css/kuvat/login_header.png" width="800px" height="300px" class="cakeImg" alt="tårtor">
+      </div>
+    </div>
+  </header>
+  <nav class="navbarClass" id="navbar">
+    <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+    <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+    <div class="dropdown">
+      <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
+        Meny
+      </a>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
+        <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
+        <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
+        <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+        <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+    <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
+  </nav>
+
+  <main class="main">
+    <div class="aside1" id="login-id">
+      <form id="login-id">
+        <label for="login-username"><b>Användarnamn</b></label>
+        <input type="text" name="login-username" id="login-username" placeholder="Ange användarnamn" required
+          autofocus />
+
+        <label for="login-password"><b>Lösenord</b></label>
+        <input type="password" name="login-password" id="login-password" placeholder="Ange lösenord" required
+          autofocus />
+
+        <button id="login-button" type="submit">Logga in</button>
+      </form>
+    </div>
+
+    <div class="aside2" id="register-id">
+      <p class="kayttajaP">Om du inte har ett konto än kan du registrera dig här.</p>
+      <p>Gå med som en lojal kund och få 15% rabatt på din första beställning. Att gå med är gratis.</p>
+      <hr><br>
+      <form id="register-form">
+        <label for="firstname">Förnamn: *: *</label>
+        <input type="text" name="firstname" id="firstname" placeholder="Förnamn" required autofocus />
+
+        <label for="lastname">Efternamn: *</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Efternamn" required autofocus />
+
+        <label for="tunnus">Användarnamn: *</label>
+        <input type="text" name="tunnus" id="tunnus" placeholder="Användarnamn" required autofocus />
+
+        <label for="password">Lösenord: *</label>
+        <input type="password" id="password" name="password" placeholder="Lösenord" required autofocus />
+
+        <label for="email">E-post: *</label>
+        <input type="email" id="email" name="email" placeholder="E-post" required autofocus />
+
+        <label for="phone">Telefonnummer: *</label>
+        <input type="tel" id="phone" name="phone" placeholder="Telefonnummer" required autofocus />
+
+        <label for="syntymapaiva">Födelsedatum:</label>
+        <input type="date" id="syntymapaiva" name="syntymapaiva" />
+
+        <label for="allergia">Matallergier:</label>
+        <textarea name="allergia" id="allergia"></textarea>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="accept-1" name="ehdot_hyvaksytty" value="true">
+          <label for="accept-1">Jag godkänner villkoren för webbutiken *</label><br>
+          <input type="checkbox" id="accept-2" name="markkinointi" value="true">
+          <label for="accept-2">Du kan skicka marknadsföringsmeddelanden via e-post till mig</label><br><br>
+          Rabattgrupp: <br />
+          <input type="radio" id="opiskelija" name="status" value="1">
+          <label for="opiskelija">Studerande</label>
+          <input type="radio" id="ope" name="status" value="1">
+          <label for="elakelainen">Pensionär
+          </label>
+        </div>
+
+        <button type="submit">Rensa formulär</button>
+        <button type="submit">Registrera</button>
+      </form>
+    </div>
+  </main>
+  <hr>
+
+</body>
+
+</html>

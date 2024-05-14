@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/2AboutUs.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+  <style>
+    .changecontent::after {
+      content: "欢迎前来品尝！";
+      color: rgb(192, 160, 122);
+      animation: changetext2 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext {
+      20% {
+        content: "加入会员， 无需手续费！ ";
+      }
+
+      40% {
+        content: "会员的第一次消费可享受15%的折扣!";
+      }
+
+      60% {
+        content: "创建你的梦想蛋糕！";
+      }
+
+      80% {
+        content: "运费 2,95€";
+      }
+
+      100% {
+        content: "欢迎前来品尝！";
+      }
+    }
+  </style>
+  <script src="../javascript/default.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">请选择语言: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN" selected>中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_cn.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_cn.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_cn.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <nav id="navbar">
+    <a href="1Etusivu_cn.html" class="navItem">首页</a>
+    <a href="2AboutUs_cn.html" class="navItem">关于我们</a>
+    <div class="dropdown">
+      <a class="dropdown-toggle" id="menuButton" href="3MenuPage_cn.html">
+        菜单
+      </a>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_cn.html">蛋糕</a>
+        <a class="dropdown-item" href="3MenuPage2_cn.html">咸味食品</a>
+        <a class="dropdown-item" href="3MenuPage3_cn.html">甜味点心</a>
+        <a class="dropdown-item" href="3MenuPage4_cn.html">热食</a>
+        <a class="dropdown-item" href="3MenuPage5_cn.html">饮品</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto_cn.html" class="navItem">联系我们</a>
+    <a href="6Poytavaraus_cn.html" class="navItem">预订场地</a>
+  </nav>
+
+
+  <div class="container">
+    <div class="logo-container">
+      <a href="1Etusivu_cn.html_"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+      <div class="background-image"></div>
+    </div>
+
+    <main>
+      <section class="about">
+        <h2>关于我们</h2>
+        <p>
+          我门是两个热爱烘焙和烹饪的人，我们一起创造了这个一个地方，每个人都可以享受美味的味觉体验和温馨的氛围。 我们的咖啡馆专门制作各种蛋糕和点心，但也不会忘记提供美味热食 - 这里的每种味道都会被喜欢。
+        </p>
+      </section>
+
+      <section class="selection">
+        <h2>选择</h2>
+        <p>
+          我们提供各种填满爱与各种不同的味道风的蛋糕和点心。 选择您喜欢的饮品， 享受新鲜的咖啡或者
+          从我们的各种饮料中选择您喜欢的饮料，享用新鲜的咖啡或其他清爽的饮料。
+        </p>
+      </section>
+
+      <section class="specialties">
+        <h2>特色</h2>
+        <p>
+          我们的特色项目包括，制作特色专属蛋糕。您可以选择您喜欢的口味和设计。我们来完成您的梦想蛋糕，为您的重要日子增添一份色彩与愉悦。
+        </p>
+      </section>
+
+      <section class="services">
+        <h2>服务项目</h2>
+        <p>
+          我们提供各式服务， 例如：场地租用， 送货上门，您也可以到店自取</p>
+      </section>
+
+      <section class="contact">
+        <h2>联系我们</h2>
+        <p>
+          您想定制您的自定义蛋糕或者预约场地吗？您可以与我们电话或电子邮件联系。
+          <a href="5Yhteydenotto_cn.html">通过此链接</a>
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; S&A CAFE 2024</p>
+    <div class="changecontent">
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+
+### get alla tuotteet ostoskorista
+GET http:/localhost:3000/api/v1/ostoskori
+
+
+###get ostokset by asiakas_id
+GET http:/localhost:3000/api/v1/ostoskori/69
+
+
+###get tuote määrä by asiakas_id and tuote_id
+GET http:/localhost:3000/api/v1/ostoskori/69/145
+
+
+### uusi tuote ostoskoriin
+POST http:/localhost:3000/api/v1/ostoskori
+Content-Type: application/json
+
+{
+    "asiakas_id": "4",
+    "tuote_id": "5",
+    "tuote_maara": "3"
+}
+
+### Päivitä tuotteen määrää by asiakas_id and tuote_id
+PUT http:/localhost:3000/api/v1/ostoskori/12/20
+Content-Type: application/json
+
+{
+    "tuote_maara": "10"
+}
+
+###Delete suosikit by asiakas_id and tuote_id
+DELETE http:/localhost:3000/api/v1/ostoskori/12/16
+
+###get tuote by user id
+GET http:/localhost:3000/api/v1/tuote/user/3

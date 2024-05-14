@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: 7Kayttaja.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: 7Kayttaja.js</h1>
+
+
+
+
+
+
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict';
+
+/**
+ * Gets the selected language from a dropdown.
+ * @returns {string} The language code, defaulting to 'FI' if none is selected.
+ */
+function getSelectedLanguage() {
+    const kieli = document.getElementById('kieli');
+    return kieli &amp;&amp; kieli.value ? kieli.value : 'FI';
+}
+
+/**
+ * Logs the user out and redirects to the login page based on the selected language.
+ */
+
+function logOut() {
+    localStorage.removeItem('authToken');
+
+    const selectedLanguage = getSelectedLanguage();
+
+    let logoutPage = '';
+    switch (selectedLanguage) {
+        case 'EN':
+            logoutPage = '11Login_en.html';
+            break;
+        case 'CN':
+            logoutPage = '11Login_cn.html';
+            break;
+        case 'ET':
+            logoutPage = '11Login_et.html';
+            break;
+        case 'SV':
+            logoutPage = '11Login_sv.html';
+            break;
+        case 'FI':
+        default:
+            logoutPage = '11Login.html';
+            break;
+    }
+    window.location.href = logoutPage;
+}
+
+/**
+ * Retrieves user information from a token and displays it in the HTML.
+ */
+document.addEventListener("DOMContentLoaded", async function () {
+    const token = localStorage.getItem("authToken");
+    const selectedLanguage = getSelectedLanguage();
+
+    let userId;
+
+    try {
+        const base64Payload = token.split('.')[1];
+        const payload = atob(base64Payload);
+        const parsedPayload = JSON.parse(payload);
+
+        userId = parsedPayload.asiakas_id;
+
+        const response = await fetch(`http:/localhost:3000/api/v1/asiakas/info/${userId}`, {
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error("Virhe käyttäjän tietojen hakemisessa.");
+        }
+
+        const userData = await response.json();
+        const userName = userData.nimi || "";
+        const userLastname = userData.sukunimi || "";
+        const userUsername = userData.tunnus || "";
+        const userEmail = userData.email || "";
+        const userPhone = userData.puhelin || "";
+
+        /* käännökset */
+
+        // Translation for different languages
+        const translations = {
+            FI: {
+                title: "Omat tiedot",
+                name: "Nimi",
+                lastname: "Sukunimi",
+                username: "Tunnus",
+                email: "Sähköposti",
+                phone: "Puhelin",
+                birthday: "Syntymäpäivä",
+                discountGroup: "Alennusryhmä",
+                foodAllergies: "Ruoka-allergiat",
+                edit: "Muokkaa tietoja",
+                logout: "Kirjaudu ulos",
+            },
+            EN: {
+                title: "Personal Information",
+                name: "Name",
+                lastname: "Lastname",
+                username: "Username",
+                email: "Email",
+                phone: "Phone",
+                birthday: "Birthday",
+                discountGroup: "Discount Group",
+                foodAllergies: "Food Allergies",
+                edit: "Edit Information",
+                logout: "Log Out",
+            },
+            CN: {
+                title: "个人信息",
+                name: "名字",
+                lastname: "姓",
+                username: "用户名",
+                email: "电子邮件",
+                phone: "电话",
+                birthday: "生日",
+                discountGroup: "折扣组",
+                foodAllergies: "食物过敏",
+                edit: "编辑信息",
+                logout: "登出",
+            },
+            ET: {
+                title: "Isiklik teave",
+                name: "Nimi",
+                lastname: "Perekonnanimi",
+                username: "Kasutajanimi",
+                email: "E-post",
+                phone: "Telefon",
+                birthday: "Sünnipäev",
+                discountGroup: "Soodustusgrupp",
+                foodAllergies: "Toiduallergiad",
+                edit: "Muuda teavet",
+                logout: "Logi välja",
+            },
+            SV: {
+                title: "Personlig information",
+                name: "Namn",
+                lastname: "Efternamn",
+                username: "Användarnamn",
+                email: "E-post",
+                phone: "Telefon",
+                birthday: "Födelsedag",
+                discountGroup: "Rabattgrupp",
+                foodAllergies: "Matallergier",
+                edit: "Redigera information",
+                logout: "Logga ut",
+            },
+        };
+
+        // Get the discount group in the appropriate language
+        const discountGroup = {
+            "Opiskelija": {
+                "FI": "Opiskelija",
+                "EN": "Student",
+                "CN": "学生",
+                "ET": "Õpilane",
+                "SV": "Student",
+            },
+            "Eläkeläinen": {
+                "FI": "Eläkeläinen",
+                "EN": "Retiree",
+                "CN": "退休人员",
+                "ET": "Pensionär",
+                "SV": "Pensionär",
+            },
+        };
+
+        // Get the corresponding page for editing user information based on the selected language
+        const anotherPage = {
+            FI: "../../html/fi/7KayttajaMuutos.html",
+            EN: "../../html/en/7KayttajaMuutos_en.html",
+            CN: "../../html/cn/7KayttajaMuutos_cn.html",
+            ET: "../../html/et/7KayttajaMuutos_et.html",
+            SV: "../../html/sv/7KayttajaMuutos_sv.html",
+        };
+
+        const t = translations[selectedLanguage];
+        const editPage = anotherPage[selectedLanguage];
+        const userDiscountGroup = userData.allennus_ryhma || "";
+        const translatedDiscountGroup = discountGroup[userDiscountGroup]?.[selectedLanguage] || "";
+
+        /* ruoka-allergiat */
+        const allergies = getAllergiat();
+        const allergiaText = allergies.join(", ");
+
+        /* syntymäpäivä nätimmin */
+
+        const formattedDate = userData.syntymapaiva ? new Date(userData.syntymapaiva) : null;
+        const day = formattedDate ? formattedDate.getUTCDate().toString().padStart(2, '0') : '';
+        const month = formattedDate ? (formattedDate.getUTCMonth() + 1).toString().padStart(2, '0') : '';
+        const year = formattedDate ? formattedDate.getUTCFullYear() : '';
+
+        const displayDate = formattedDate ? `${day}.${month}.${year}` : '';
+
+        const omatTiedotSection = document.getElementById("omatiedot");
+
+        omatTiedotSection.innerHTML = `
+            &lt;h1>${t.title}&lt;/h1>&lt;br>
+            &lt;p>${t.name}: ${userName}&lt;/p>
+            &lt;p>${t.lastname}: ${userLastname}&lt;/p>
+            &lt;p>${t.username}: ${userUsername}&lt;/p>
+            &lt;p>${t.email}: ${userEmail}&lt;/p>
+            &lt;p>${t.phone}: ${userPhone}&lt;/p>
+            &lt;p>${t.birthday}: ${displayDate}&lt;/p>
+            &lt;p>${t.discountGroup}: ${translatedDiscountGroup}&lt;/p>
+            &lt;label for="allergia">${t.foodAllergies}:&lt;/label>&lt;br>
+            &lt;li name="allergia" id="allergia"
+            style="color: rgb(219, 146, 56); font-weight: bold; list-style: none;
+            border: 1px solid black; border-radius: 5px; font-size: 14px;">
+            ${allergiaText}
+            &lt;/li>&lt;br>
+            &lt;button class="edit" type="button" onclick="window.location.href = '../../html/${editPage}'">&lt;b>${t.edit}&lt;/b>&lt;/button>&lt;br>
+            &lt;button class="logOut" type="button" onclick="logOut()">&lt;b>${t.logout}&lt;/b>&lt;/button>
+        `;
+
+    } catch (error) {
+    }
+});
+
+/**
+ * Gets the storage key for the user's allergy information based on their ID.
+ * @returns {string} The storage key for the user's allergies.
+ */
+function getAllergiaStorageKey() {
+    const token = localStorage.getItem('authToken');
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    const parsedPayload = JSON.parse(payload);
+
+    const userID = parsedPayload.asiakas_id;
+    return `userAllergia_${userID}`;
+}
+
+/**
+ * Retrieves the list of allergies from local storage.
+ * @returns {Array&lt;string>} The list of stored allergies, or an empty array if none are found.
+ */
+function getAllergiat() {
+    const storageKey = getAllergiaStorageKey();
+    try {
+        const storedAllergias = localStorage.getItem(storageKey);
+        if (storedAllergias) {
+            return JSON.parse(storedAllergias);
+        } else {
+            return [];
+        }
+    } catch (error) {
+        return [];
+    }
+}
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#getAllergiaStorageKey">getAllergiaStorageKey</a></li><li><a href="global.html#getAllergiat">getAllergiat</a></li><li><a href="global.html#getSelectedLanguage">getSelectedLanguage</a></li><li><a href="global.html#logOut">logOut</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri May 10 2024 00:07:52 GMT+0300 (Eastern European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/7KayttajaMuutos.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+    <style>
+        /* footer */
+
+        .changecontent::after {
+            content: "Tervetuloa kakkukahveille!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+            }
+
+            40% {
+                content: "Liittyminen on maksutonta";
+            }
+
+            60% {
+                content: "Luo unelmiesi kakku!";
+            }
+
+            80% {
+                content: "Kotiinkuljetus alkaen 2,95€";
+            }
+
+            100% {
+                content: "Tervetuloa kakkukahveille!";
+            }
+        }
+    </style>
+
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/7KayttajaMuutos.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Valitse kieli: </label>
+                        <select id="kieli" onchange="changeLanguage(this.value)">
+                            <option value="FI" selected>Suomi</option>
+                            <option value="EN">English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV">Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <div class="image-container">
+        <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+        <img src="../css/kuvat/kayttaja_header.jpg" class="cakeImg" alt="cakes">
+    </div>
+
+    <nav id="navbar">
+        <a href="1Etusivu.html" class="navItem">Etusivu</a>
+        <a href="2AboutUs.html" class="navItem">About Us</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage.html">
+                Menu
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
+                <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+                <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+                <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+                <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
+        <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
+    </nav>
+
+    <main class="main">
+        <div class="aside1">
+            <ul class="kuvat" style="list-style: none;">
+                <li>
+                    <a href="7Kayttaja.html">
+                        <span class="tiedot"></span>
+                    </a>
+                <li>
+                    <a href="12Tilaus.html">
+                        <span class="tilaus"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="13Kupongit.html">
+                        <span class="kupongit"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="aside2" id="muokkaaTiedot">
+            <form id="editForm" action="7Kayttaja.html" method="post" onsubmit="submitForm(event)">
+                <h3>Muokkaa tietojasi</h3>
+                <form id="editForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="etunimi">Etunimi:</label>
+                        <input type="text" id="etunimi" name="etunimi" value="{{ etunimi }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sukunimi">Sukunimi:</label>
+                        <input type="text" id="sukunimi" name="sukunimi" value="{{ sukunimi }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tunnus">Käyttäjätunnus:</label>
+                        <input type="text" id="tunnus" name="tunnus" value="{{ tunnus }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Sähköposti:</label>
+                        <input type="email" id="email" name="email" value="{{ email }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="puhelin">Puhelinnumero:</label>
+                        <input type="tel" id="puhelin" name="puhelin" value="{{ puhelin }}">
+                    </div>
+                    <button class="tietoButton" type="submit">Tallenna muutokset</button>
+                </form>
+
+                <form id="allergiaForm">
+                    <div class="form-group">
+                        <label class="allergiaLabel" for="allergia">Ruoka-allergiat: (Vapaaehtoinen)</label>
+                        <textarea class="allergia" name="allergia" id="allergia"></textarea><br>
+                        <button class="allergiaNappi" type="submit">Lisää</button>
+                    </div>
+                </form>
+
+                <div id="allergiaList"></div>
+
+                <hr>
+                <h3 class="salasananVaihto">Vaihda salasana</h3>
+                <form id="changePasswordForm">
+                    <div class="form-group">
+                        <label for="salasana">Uusi salasana:</label>
+                        <input type="password" id="salasana" name="newPassword" required><br>
+                    </div>
+
+                    <div class="form-group" id="allergiaForm">
+                        <label for="confirm_salasana">Vahvista uusi salasana:</label>
+                        <input type="password" id="confirm_salasana" required><br>
+                    </div>
+
+                    <button class="salasanaButton" type="submit">Tallenna muutokset</button>
+                </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
+
+</body>
+
+</html>

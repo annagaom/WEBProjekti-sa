@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/6Poytavaraus.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    /* footer */
+
+    .changecontent::after {
+      content: "Tervetuloa kakkukahveille!";
+      color: rgb(192, 160, 122);
+      animation: changetext 10s infinite linear;
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    @keyframes changetext {
+      20% {
+        content: "Liity kanta-asiakkaaksi, niin saat 15 %:n alennuksen ensimmäisestä tilauksestasi!";
+      }
+
+      40% {
+        content: "Liittyminen on maksutonta";
+      }
+
+      60% {
+        content: "Luo unelmiesi kakku!";
+      }
+
+      80% {
+        content: "Kotiinkuljetus alkaen 2,95€";
+      }
+
+      100% {
+        content: "Tervetuloa kakkukahveille!";
+      }
+    }
+  </style>
+
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/6Poytavaraus.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Valitse kieli: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI" selected>Suomi</option>
+              <option value="EN">English</option>
+              <option value="CN">中文</option>
+              <option value="ET">Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+  </header>
+  <main>
+
+    <div class="image-container">
+      <a href="1Etusivu.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+      <img src="../css/kuvat/tilanvaraus_header.jpg" class="cakeImg" alt="cakes">
+    </div>
+
+    <nav id="navbar">
+      <a href="1Etusivu.html" class="navItem">Etusivu</a>
+      <a href="2AboutUs.html" class="navItem">About Us</a>
+      <div class="dropdown">
+        <a class="dropdown-toggle" id="menuButton" href="3MenuPage.html">
+          Menu
+        </a>
+        <div class="dropdown-menu" id="menuDropdown">
+          <a class="dropdown-item" href="3MenuPage1.html">Kakut</a>
+          <a class="dropdown-item" href="3MenuPage2.html">Suolaista</a>
+          <a class="dropdown-item" href="3MenuPage3.html">Makeaa</a>
+          <a class="dropdown-item" href="3MenuPage4.html">Lämmintä ruokaa</a>
+          <a class="dropdown-item" href="3MenuPage5.html">Juotavaa</a>
+        </div>
+      </div>
+      <a href="5Yhteydenotto.html" class="navItem">Ota yhteyttä</a>
+      <a href="6Poytavaraus.html" class="navItem">Varaa tila</a>
+    </nav>
+
+    <div>
+      <h1 class="reserve">Varaa tila</h1>
+      <hr>
+      <p class="tilaP"><b>Valitse tila, joka sopii parhaiten tarpeisiisi!</b> Tarjoamme monipuolisia tiloja erilaisiin
+        tarkoituksiin.
+        <br> <br> Tilojen hinnat vaihtelevat tilan koosta ja käyttötarkoituksesta riippuen.
+        <br> <br> Tilojen varaukset ovat voimassa <b>2-4h.</b>
+        <br> <br> Lisätietoa saat sähköpostitse!
+        <hr><br> Voit lähettää varauskyselyn <a href="#" id="open-modal">tästä lomakkeesta</a>
+        tai sähköpostitse osoitteesta: <b>info@ascafe.fi</b>
+        <br><br>
+      </p>
+
+      <!-- Modaali-ikkuna -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="close-modal">&times;</span>
+          <h2>Varaa tila</h2>
+          <form id="bookingForm" onsubmit="return sendEmail();">
+            <div>
+              <label>Nimesi:</label required>
+              <input type="text" name="name">
+            </div>
+            <div>
+              <label>Sähköpostisi:</label>
+              <input type="email" name="email" required>
+            </div>
+            <div>
+              <label>Puhelinnumerosi:</label>
+              <input type="tel" name="phone" required>
+            </div>
+            <div>
+              <label name="selected_space">Valitse tila:</label>
+              <select required>
+                <option>Baristan Nurkka</option>
+                <option>Latte Lounge</option>
+                <option>S&A Special</option>
+              </select>
+            </div>
+            <div>
+              <label><b>Varauksen tiedot</b></label>
+              <p>
+                Jotta voimme varmistaa parhaan mahdollisen palvelun, kerro meille seuraavat asiat:
+              </p>
+              <ul>
+                <li><strong>Käyttötarkoitus:</strong> Mikä on tilaisuuden tarkoitus?</li>
+                <li><strong>Ajankohta:</strong> Milloin tilaisuus järjestetään? Mainitse myös päivämäärä.</li>
+                <li><strong>Kellonaika:</strong> Mihin aikaan tilaisuus alkaa ja päättyy? </li>
+                <li><strong>Henkilömäärä:</strong> Kuinka monta henkilöä tilaisuuteen osallistuu?</li>
+              </ul>
+              <textarea name="message" required></textarea>
+              <p>Lähetettyäsi lomakkeen olemme sinuun sähköpostitse yhteydessä!</p>
+            </div>
+            <button class="lähetä" type="submit">Lähetä</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <main class="main">
+      <div class="aside2" id="register-id">
+        <h2>Baristan Nurkka</h2>
+        <hr>
+        <p></p>
+        <img src="../css/kuvat/tilaKuva1.jpg" alt="tila2" class="tila1">
+
+        <div>
+          <p>Tämä tila sopii 2 - 4 henkilöille!</p>
+          <table border="0.5">
+            <tr>
+              <th>Koko</th>
+              <th>Hinta</th>
+            </tr>
+            <tr>
+              <td>25m<sup>2</sup></td>
+              <td>Alkaen 40€ / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+
+      <div class="aside2" id="register-id">
+        <h2>Latte Lounge</h2>
+        <hr>
+        <p></p>
+        <img src="../css/kuvat/tilaKuva2.jpeg" alt="tila2" class="tila1">
+        <p></p>
+        <div>
+          <p>Tämä tila sopii 5 - 9 henkilöille! </p>
+          <table border="0.5">
+            <tr>
+              <th>Koko</th>
+              <th>Hinta</th>
+            </tr>
+            <tr>
+              <td>35m<sup>2</sup></td>
+              <td>Alkaen 60€ / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+
+      <div class="aside2" id="register-id">
+        <h2>S&A Special</h2>
+        <hr>
+        <p></p>
+        <img src="../css/kuvat/tilaKuva3.jpg" alt="tila2" class="tila1">
+        <p></p>
+        <div>
+          <p>Tämä tila sopii 10 - 15 henkilöille!</p>
+          <table border="0.8">
+            <tr>
+              <th>Koko</th>
+              <th>Hinta</th>
+            </tr>
+            <tr>
+              <td>50m<sup>2</sup></td>
+              <td>Alkaen 80€ / h</td>
+            </tr>
+            <hr>
+          </table>
+          <hr>
+        </div>
+      </div>
+    </main>
+    <hr>
+
+    <footer>
+      <p>&copy; S&A CAFE 2024</p>
+      <div class="changecontent">
+      </div>
+    </footer>
+</body>
+
+</html>

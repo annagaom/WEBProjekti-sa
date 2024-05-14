@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/2AboutUs.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+
+    <style>
+        .changecontent::after {
+            content: "Välkommen till kak- och kaffemorgon!";
+            color: rgb(192, 160, 122);
+            animation: changetext2 10s infinite linear;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        @keyframes changetext2 {
+            20% {
+                content: "Bli stamkund och få 15% rabatt på din första beställning!";
+            }
+
+            40% {
+                content: "Medlemskap är gratis";
+            }
+
+            60% {
+                content: "Skapa din drömkaka!";
+            }
+
+            80% {
+                content: "Hemleverans från 2,95€";
+            }
+
+            100% {
+                content: "Välkommen till kak- och kaffemorgon!";
+            }
+        }
+    </style>
+
+    <script src="../javascript/default.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Välj språk: </label>
+                        <select id="kieli">
+                            <option value="FI">Suomi</option>
+                            <option value="EN">English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV" selected>Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_sv.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_sv.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_sv.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+    <nav id="navbar">
+        <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+        <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
+                Meny
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
+                <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
+                <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
+                <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+                <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+        <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
+    </nav>
+
+    <div class="container">
+        <div class="logo-container">
+            <a href="1Etusivu_sv.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+            <div class="background-image"></div>
+        </div>
+
+        <main>
+            <section class="about">
+                <h2>Om oss</h2>
+                <p>
+                    Vi är två passionerade bagare och matälskare som samlade våra krafter för att skapa
+                    en plats där alla kan njuta av läckra smakupplevelser och en varm atmosfär.
+                    Vårt café är specialiserat på att tillverka tårtor och andra bakverk,
+                    utan att glömma bort godheterna i varm mat – hos oss hittar varje smak säkert något underbart.
+                </p>
+            </section>
+
+            <section class="selection">
+                <h2>Utval</h2>
+                <p>
+                    Vi erbjuder ett brett utbud av läckra tårtor och bakverk, som är fulla av smak och
+                    kärlek.
+                    Välj din favoritdryck från vårt stora dryckesutbud och njut av färskt kaffe eller annan
+                    uppfriskande dryck.
+                </p>
+            </section>
+
+            <section class="specialties">
+                <h2>Specialiteter</h2>
+                <p>
+                    Våra specialiteter inkluderar att skapa "custom" tårtor – vi förverkligar din drömtårta,
+                    vare sig det är en födelsedag, bröllop eller någon annan fest.
+                </p>
+            </section>
+
+            <section class="services">
+                <h2>Tjänster</h2>
+                <p>
+                    Vi erbjuder olika tjänster, inklusive uthyrning av lokaler för privata tillställningar,
+                    hemleveransservice och möjlighet att hämta godsakerna med sig.
+                </p>
+            </section>
+
+            <section class="contact">
+                <h2>Kontakta oss</h2>
+                <p>
+                    Vill du beställa en "custom" tårta eller boka en tillställning? Tveka inte att kontakta oss via
+                    e-post eller telefon <a href="5Yhteydenotto_sv.html">genom denna länk</a>.
+                </p>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; S&A CAFE 2024</p>
+        <div class="changecontent">
+        </div>
+    </footer>
+</body>
+
+</html>

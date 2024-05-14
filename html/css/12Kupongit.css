@@ -1,0 +1,493 @@
+body {
+  font-family: 'Tahoma', sans-serif;
+  margin: auto;
+  width: 90%;
+  padding: 10px;
+}
+
+.container {
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-link__icon[data-v-007d9333] {
+  width: 12px;
+  height: 12px;
+  margin-right: var(--spacing-small)
+}
+
+.title {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.icons {
+  text-align: right;
+  display: flex;
+  width: 100%;
+  display: inline-block;
+  background: none;
+  justify-content: right;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 90%;
+  height: 240px;
+  padding: 7% 0;
+  margin-right: 20px;
+}
+
+.cakeImg {
+  box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
+  width: 80%;
+  height: 300px;
+}
+
+.käyttäjä {
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
+
+}
+
+.suosikit {
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
+}
+
+.ostoskori {
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
+}
+
+.kieli {
+  margin: 7px 10px 0px 0px;
+}
+
+#kieli {
+  background-color: rgb(192, 160, 122);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: 'Tahoma', sans-serif;
+}
+
+/* navigation bar */
+
+a {
+  text-decoration: none;
+  color: #df810f;
+  font-size: bold;
+}
+
+nav {
+  background-color: rgb(192, 160, 122);
+  padding: 10px 3px 10px 3px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  justify-content: right;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+
+.navItem {
+  display: inline-block;
+  color: #fff;
+  text-shadow: 1px 1px 1px black;
+  flex-grow: 1;
+  text-align: center;
+  position: relative;
+}
+
+.navItem:hover {
+  text-decoration: none;
+  color: #dfd7cd;
+}
+
+.dropdown {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  top: 100%;
+  left: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Tahoma', sans-serif;
+  text-shadow: 1px 1px 1px black;
+}
+
+.dropdown-toggle:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: #eceae9;
+}
+
+/* main */
+.main {
+  width: 90%;
+  height: 100px;
+  margin: 20px 0px 20px 0px;
+  text-align: center;
+  border-radius: 1rem;
+  margin-top: 20px;
+  min-height: 80vh;
+  display: flex;
+}
+
+.userP {
+  color: rgb(106, 106, 106);
+  font-size: 14px;
+  margin: 30px 0px 30px 0px;
+  font-weight: bold;
+}
+
+/* kuvat */
+.kuvat {
+  height: 200px;
+  background: none;
+  justify-content: center;
+  display: block;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 50px;
+  height: fit-content;
+}
+
+.tiedot {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 30px;
+  background-image: url('kuvat/tietosdot.png');
+  background-size: cover;
+}
+
+.tilaus {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-image: url('kuvat/tilaus.png');
+  background-size: cover;
+
+}
+
+.kupongit {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-image: url('kuvat/kupongit.png');
+  background-size: cover;
+
+}
+
+.tiedot_cn {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url('kuvat/tietosdot_cn.png');
+}
+
+.tilaus_cn {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url('kuvat/tilaus_cn.png');
+}
+
+.kupongit_cn {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-image: url('kuvat/kupongit_cn.png');
+}
+
+.tiedot_en {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url('kuvat/tietosdot_en.png');
+}
+
+.tilaus_en {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url('kuvat/tilaus_en.png');
+}
+
+.kupongit_en {
+  display: inline-block;
+  width: 175px;
+  height: 175px;
+  margin-right: 25px;
+  background-size: cover;
+  background-image: url('kuvat/kupongit_en.png');
+}
+
+
+.tiedot_et {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url('kuvat/tietosdot_et.png');
+}
+
+.tilaus_et {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url('kuvat/tilaus_et.png');
+}
+
+.kupongit_et {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-image: url('kuvat/kupongit_et.png');
+}
+
+.tiedot_sv {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url('kuvat/tietosdot_sv.png');
+}
+
+.tilaus_sv {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  background-size: cover;
+  background-image: url('kuvat/tilaus_sv.png');
+}
+
+.kupongit_sv {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-image: url('kuvat/kupongit_sv.png');
+}
+
+
+.aside1 {
+  text-align: center;
+  font-size: 20px;
+  height: 100%;
+  border-radius: 2rem;
+  margin-top: 30px;
+}
+
+.aside2 {
+  padding-left: 5%;
+  height: 80vh;
+  border-radius: 1rem;
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin-left: 5%;
+  margin-top: 30px;
+}
+
+#name {
+  border: 1px solid #123456;
+}
+
+footer {
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+  padding: 10px;
+  position: relative;
+}
+
+.footer {
+  margin: 0px 0px 0px 20px;
+  text-align: left;
+  color: #827777;
+  font-size: small;
+}
+
+/* media */
+
+@media screen and (min-width: 801px) {
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  .aside1 {
+    width: 40%;
+    margin-bottom: 2rem;
+  }
+
+  .aside2 {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    display: block;
+    height: auto;
+  }
+
+  .aside1 {
+    width: 100%;
+    height: auto;
+  }
+
+  .aside2 {
+    width: 100%;
+    height: auto;
+  }
+
+  .footer-container {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .main {
+    padding: 10px;
+    height: auto;
+  }
+
+  .aside2 {
+    width: 80%;
+    height: auto;
+  }
+
+  .aside1 {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+@media screen and (max-width: 470px) {
+  .cakeImg {
+    width: 60%;
+    height: auto;
+  }
+
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+
+  .footer-container {
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent {
+    font-size: 13px;
+  }
+
+
+  .aside2 {
+    width: 80%;
+  }
+
+  .aside1 {
+    width: 100%;
+    margin-left: -25px;
+  }
+}

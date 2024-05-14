@@ -1,0 +1,436 @@
+body {
+  font-family: 'Tahoma', sans-serif;
+  margin: auto;
+  width: 90%;
+  padding: 10px;
+}
+
+.container {
+  width: 100%;
+}
+
+header {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-link__icon[data-v-007d9333] {
+  width: 12px;
+  height: 12px;
+  margin-right: var(--spacing-small)
+}
+
+.title {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+}
+
+.icons {
+  text-align: right;
+  display: flex;
+  width: 100%;
+  display: inline-block;
+  background: none;
+  justify-content: right;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 90%;
+  height: 240px;
+  padding: 7% 0;
+  margin-right: 20px;
+}
+
+#map {
+  border: 1px solid rgb(184, 170, 170);
+  box-shadow: 0 5px 40px 0 rgba(147, 144, 144, 0.578);
+  height: 50vh;
+  width: 100%;
+}
+
+.käyttäjä {
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
+
+}
+
+.suosikit {
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
+}
+
+.ostoskori {
+  display: inline-block;
+  margin: 10px;
+  font-size: 20px;
+  background-size: cover;
+}
+
+.kieli {
+  margin: 7px 10px 0px 0px;
+}
+
+#kieli {
+  background-color: rgb(192, 160, 122);
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: 'Tahoma', sans-serif;
+}
+
+/* navigation bar */
+
+a {
+  text-decoration: none;
+  color: #df810f;
+  font-size: bold;
+}
+
+nav {
+  background-color: rgb(192, 160, 122);
+  padding: 10px 3px 10px 3px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  justify-content: right;
+}
+
+nav li {
+  margin-left: 20px;
+}
+
+.navItem {
+  display: inline-block;
+  color: #fff;
+  text-shadow: 1px 1px 1px black;
+  flex-grow: 1;
+  text-align: center;
+  position: relative;
+}
+
+.navItem:hover {
+  text-decoration: none;
+  color: #dfd7cd;
+}
+
+.dropdown {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  top: 100%;
+  left: 0;
+  z-index: 2;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Tahoma', sans-serif;
+  text-shadow: 1px 1px 1px black;
+}
+
+.dropdown-toggle:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: #eceae9;
+
+}
+
+/* main */
+
+.socials p,
+.socials a {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5%;
+}
+
+.socials {
+  margin-top: 0px;
+  padding-left: 20px;
+}
+
+.instagram,
+.facebook,
+.twitter {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  margin-right: 50px;
+}
+
+h3 {
+  text-shadow: 1px 1px 1px gray;
+  margin: 0px 0px 30px 20px;
+  font-size: 20px;
+}
+
+main {
+  border: 1px solid rgb(184, 170, 170);
+  box-shadow: 0 15px 25px 0 rgb(184, 170, 170);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 90%;
+  margin-top: 15px;
+
+}
+
+
+.mainTaustakuva {
+
+  background-image: url(/html/css/kuvat/background.png);
+  width: 90%;
+}
+
+.taustakuva .contact {
+  padding: 10px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+
+
+/* footer */
+
+footer {
+  margin: 25px 10px 0px 25px;
+  padding: 5px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgb(234, 229, 223), rgba(231, 225, 218, 0.2));
+  box-shadow: 0px 5px 10px rgba(140, 137, 137, 0.2);
+}
+
+/* media */
+@media (min-width: 1010px) {
+  .main {
+    width: 90%;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .title {
+    flex-direction: row;
+    margin-left: 100px;
+  }
+
+  .mainTaustakuva {
+    width: 100%;
+  }
+
+  .socials {
+    padding-left: 10%;
+  }
+
+  .contact-info img {
+    margin-left: 5px;
+    padding-left: 20%;
+  }
+}
+
+
+@media (min-width: 751px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .title {
+    flex-direction: row;
+    margin-left: 100px;
+
+    nav {
+      justify-content: right;
+      width: 100%;
+    }
+
+    nav ul {
+      justify-content: right;
+    }
+
+    .contact-info img {
+      margin-left: 5px;
+      padding-left: 20%;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 5%;
+    }
+
+    .socials {
+      padding-left: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+
+@media (max-width: 750px) {
+
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    flex-direction: column;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .contact-item {
+    display: block;
+    align-items: center;
+    padding-left: 20%;
+  }
+
+
+  .socials {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .mainTaustakuva {
+    width: 100%;
+  }
+
+  nav {
+
+    width: 90%;
+  }
+
+  .map {
+
+    width: 90%;
+  }
+
+  .contact-info {
+    margin-left: 30%;
+    padding-left: 10%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .cakeImg {
+    width: 60%;
+    height: auto;
+  }
+
+  .logo {
+    width: 100px;
+    height: auto;
+  }
+
+  contact-info {
+    margin-left: 10%;
+    padding-left: 10%;
+  }
+
+  .icons {
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .socials {
+    margin-right: 100px;
+  }
+
+  .contact-info {
+    margin-right: 60px;
+  }
+
+  .footer-container {
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dropdown,
+  .navItem {
+    padding: 10px;
+    border: 1px solid black;
+  }
+
+  footer {
+    width: 100%;
+    margin-left: -8px;
+  }
+
+  .changecontent {
+    font-size: 13px;
+  }
+}

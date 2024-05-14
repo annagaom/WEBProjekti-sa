@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/9Maksu.css" rel="stylesheet">
+    <title>S&A CAFE</title>
+    <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+    <script src="../javascript/default.js" defer></script>
+    <script src="../javascript/9Maksu.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <nav class="icons">
+                <ul>
+                    <li class="kieli">
+                        <label for="kieli">Välj språk: </label>
+                        <select id="kieli">
+                            <option value="FI">Suomi</option>
+                            <option value="EN">English</option>
+                            <option value="CN">中文</option>
+                            <option value="ET">Eesti</option>
+                            <option value="SV" selected>Svenska</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="11Login_sv.html">
+                            <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="8Suosikit_sv.html">
+                            <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="9Ostoskori_sv.html">
+                            <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <nav class="navbarClass" id="navbar">
+        <a href="1Etusivu_sv.html" class="navItem">Framsidan</a>
+        <a href="2AboutUs_sv.html" class="navItem">Om oss</a>
+        <div class="dropdown">
+            <a class="dropdown-toggle" id="menuButton" href="3MenuPage_sv.html">
+                Meny
+            </a>
+            <div class="dropdown-menu" id="menuDropdown">
+                <a class="dropdown-item" href="3MenuPage1_sv.html">Kakor</a>
+                <a class="dropdown-item" href="3MenuPage2_sv.html">Hart</a>
+                <a class="dropdown-item" href="3MenuPage3_sv.html">Söta</a>
+                <a class="dropdown-item" href="3MenuPage4_sv.html">Varm mat</a>
+                <a class="dropdown-item" href="3MenuPage5_sv.html">Drycker</a>
+            </div>
+        </div>
+        <a href="5Yhteydenotto_sv.html" class="navItem">Kontakta oss</a>
+        <a href="6Poytavaraus_sv.html" class="navItem">Boka plats</a>
+    </nav>
+
+    <h1>Betalningsuppgifter</h1>
+    <hr>
+
+    <div class="form-container">
+        <form id="maksutiedotForm" method="post" action="9Bekräftelse.html">
+            <div class="form-group">
+                <label for="nimi">Namn:</label>
+                <input type="text" id="nimi" name="nimi" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sahkoposti">E-postadress:</label>
+                <input type="email" id="sahkoposti" name="sahkoposti" required>
+            </div>
+
+            <div class="form-group">
+                <label for="puhelin">Telefonnummer:</label>
+                <input type="text" id="puhelin" name="puhelin" required>
+            </div>
+
+            <div class="form-group">
+                <label for="osoite">Leveransadress:</label>
+                <textarea id="osoite" name="osoite" required></textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="eri_laskutus" name="eri_laskutus">
+                <label for="eri_laskutus">Är faktureringsadressen en annan än leveransadressen?</label>
+            </div>
+
+            <div class="form-group" id="laskutus_osoite" style="display: none;">
+                <label for="laskutusosoite">Faktureringsadress:</label>
+                <textarea id="laskutusosoite" name="laskutusosoite"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="maksutapa">Betalningssätt:</label>
+                <select id="maksutapa" name="maksutapa" required>
+                    <option value="kredit">Kreditkort</option>
+                    <option value="pankki">Bankkort</option>
+                    <option value="mobile">MobilePay</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="kortin_haltija">Kortinnehavarens namn:</label>
+                <input type="text" id="kortin_haltija" name="kortin_haltija" required>
+            </div>
+
+            <div class="form-group">
+                <label for="kortin_numero">Kreditkortsnummer:</label>
+                <input type="text" id="kortin_numero" name="kortin_numero" pattern="\d{16}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="voimassaoloaika">Kortets utgångsdatum (MM/ÅÅ):</label>
+                <input type="text" id="voimassaoloaika" name="voimassaoloaika" pattern="\d{2}/\d{2}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" pattern="\d{3}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="toimitusohjeet">Leveransinstruktioner:</label>
+                <textarea id="toimitusohjeet" name="toimitusohjeet"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="toimitusaika">Önskad leveranstid:</label>
+                <input type="time" id="toimitusaika" name="toimitusaika">
+            </div>
+
+            <div class="form-group">
+                <label for="alennus">Rabattkod:</label>
+                <input type="text" id="alennus" name="alennus">
+                <button id="applyDiscountButton">Använd koden</button>
+            </div>
+
+            <div id="discountResult"></div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="hyvaksyminen" name="hyvaksyminen" required>
+                <label for="hyvaksyminen">Jag accepterar villkoren</label>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit">Skicka beställning</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>

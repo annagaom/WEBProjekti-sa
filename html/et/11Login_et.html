@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/11Login.css" rel="stylesheet">
+  <title>S&A CAFE</title>
+  <link rel="shortcut icon" type="image" href="../css/kuvat/cake.png">
+  <script src="../javascript/default.js" defer></script>
+  <script src="../javascript/11Login.js" defer></script>
+  <script src="../javascript/11Register.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div>
+      <nav class="icons">
+        <ul>
+          <li class="kieli">
+            <label for="kieli">Vali keel: </label>
+            <select id="kieli" onchange="changeLanguage(this.value)">
+              <option value="FI">Suomi</option>
+              <option value="EN">Englanti</option>
+              <option value="CN">中文</option>
+              <option value="ET" selected>Eesti</option>
+              <option value="SV">Svenska</option>
+            </select>
+          </li>
+          <li>
+            <a href="11Login_et.html">
+              <div class="käyttäjä" id="profiili-icon" class="icon">👤</div>
+
+            </a>
+          </li>
+          <li>
+            <a href="8Suosikit_et.html">
+              <div class="suosikit" id="sydan-icon" class="icon"> ❤️ <span id="suosikki-lkm">0</span></div>
+            </a>
+          </li>
+          <li>
+            <a href="9Ostoskori_et.html">
+              <div class="ostoskori" id="ostoskori-icon">🛒 <span id="ostoskori-lkm">0</span></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="image-container">
+    <a href="1Etusivu_et.html"><img src="../css/kuvat/logo.png" class="logo" alt="logo-kuva"></a>
+    <img src="../css/kuvat/login_header.png" class="cakeImg" alt="cakes">
+  </div>
+
+  <nav id="navbar">
+    <a href="1Etusivu_et.html" class="navItem">Esileht</a>
+    <a href="2AboutUs_et.html" class="navItem">Meist</a>
+    <div class="dropdown">
+      <a class="dropdown-toggle" id="menuButton" href="3MenuPage_et.html">
+        Menüü
+      </a>
+      <div class="dropdown-menu" id="menuDropdown">
+        <a class="dropdown-item" href="3MenuPage1_et.html">Koogid</a>
+        <a class="dropdown-item" href="3MenuPage2_et.html">Soolane</a>
+        <a class="dropdown-item" href="3MenuPage3_et.html">Magus</a>
+        <a class="dropdown-item" href="3MenuPage4_et.html">Soojendav toit</a>
+        <a class="dropdown-item" href="3MenuPage5_et.html">Jook</a>
+      </div>
+    </div>
+    <a href="5Yhteydenotto_et.html" class="navItem">Võta meiega ühendust</a>
+    <a href="6Poytavaraus_et.html" class="navItem">Broneeri ruum</a>
+  </nav>
+
+  <main class="main">
+    <div class="aside1" id="login-id">
+      <form id="login-id">
+        <label for="login-username"><b>Kasutajanimi</b></label>
+        <input type="text" name="login-username" id="login-username" placeholder="Sisesta kasutajanimi" required
+          autofocus />
+
+        <label for="login-password"><b>Parool</b></label>
+        <input type="password" name="login-password" id="login-password" placeholder="Sisesta parool" required
+          autofocus />
+
+        <button id="login-button" type="submit">Logi sisse</button>
+      </form>
+    </div>
+
+    <div class="aside2" id="register-id">
+      <p class="kayttajaP">Kui teil pole veel kasutajat, saate siit registreeruda.</p>
+      <p>Liitu püsikliendiks ja saa 15% allahindlust esimeselt tellimuselt. Liitumine on tasuta.</p>
+      <hr><br>
+      <form id="register-form">
+        <label for="firstname">Eesnimi: *: *</label>
+        <input type="text" name="firstname" id="firstname" placeholder="Eesnimi" required autofocus />
+
+        <label for="lastname">Perekonnanimi: *</label>
+        <input type="text" name="lastname" id="lastname" placeholder="Perekonnanimi" required autofocus />
+
+        <label for="tunnus">Kasutajanimi: *</label>
+        <input type="text" name="tunnus" id="tunnus" placeholder="Kasutajanimi" required autofocus />
+
+        <label for="password">Parool: *</label>
+        <input type="password" id="password" name="password" placeholder="Parool" required autofocus />
+
+        <label for="email">E-post: *</label>
+        <input type="email" id="email" name="email" placeholder="E-post" required autofocus />
+
+        <label for="phone">Telefoninumber: *</label>
+        <input type="tel" id="phone" name="phone" placeholder="Telefoninumber" required autofocus />
+
+        <label for="syntymapaiva">Sünniaeg:</label>
+        <input type="date" id="syntymapaiva" name="syntymapaiva" />
+
+        <label for="allergia">Toiduallergiad:</label>
+        <textarea name="allergia" id="allergia"></textarea>
+
+        <div class="checkbox-container">
+          <input type="checkbox" id="accept-1" name="ehdot_hyvaksytty" value="true">
+          <label for="accept-1">Nõustun veebipoega *</label><br>
+          <input type="checkbox" id="accept-2" name="markkinointi" value="true">
+          <label for="accept-2">Võib saata turundussõnumeid e-posti teel</label><br><br>
+          Allahindlusgrupp: <br />
+          <input type="radio" id="opiskelija" name="status" value="1">
+          <label for="opiskelija">Õpilane</label>
+          <input type="radio" id="ope" name="status" value="1">
+          <label for="elakelainen">Pensionär
+          </label>
+        </div>
+
+        <button type="submit">Tühjenda vorm</button>
+        <button type="submit">Registreeri</button>
+      </form>
+    </div>
+  </main>
+  <hr>
+
+</body>
+
+</html>
